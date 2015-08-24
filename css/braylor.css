@@ -94,17 +94,17 @@ header>nav>ul>li>a:hover {
 
 .bg-1 {
   background-image: url(
-    /images/la-jolla-shores-spaulding-proposal39.jpg
+    ../images/la-jolla-shores-spaulding-proposal39.jpg
   );
 }
 .bg-2 {
   background-image: url(
-    /images/la-jolla-shores-spaulding-proposal38.jpg
+    ../images/la-jolla-shores-spaulding-proposal38.jpg
   );
 }
 .bg-3 {
   background-image: url(
-    /images/la-jolla-shores-spaulding-proposal40.jpg
+    ../images/la-jolla-shores-spaulding-proposal40.jpg
   );
 }
 
