@@ -9,11 +9,7 @@ html, body {
 }
 
 body {
-  background-image: url('../images/la-jolla-shores-spaulding-proposal38.jpg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed;
+  background-image: url('../images/chalk-background-repeatable.jpg');
   font-family: 'Open Sans', sans-serif;
   color: white;
 
