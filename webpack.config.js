@@ -5,8 +5,14 @@ module.exports = {
     filename: "bundle.js"
   },
   module: {
-    loaders: [
-      { test: /\.jsx?/, exclude: /node_modules/, loader: "babel?presets[]=es2015" }
-    ]
+    loaders: [{
+      test: /\.jsx?/,
+      exclude: /node_modules/,
+      loader: "babel",
+      query: {
+        cacheDirectory: true,
+        presets: ["es2015"]
+      }
+    }]
   }
 };
