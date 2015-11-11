@@ -4,10 +4,6 @@ html, body {
   min-height: 100%;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 body {
   background-image: url('../images/chalk-background-repeatable.jpg');
   font-family: 'Open Sans', sans-serif;
