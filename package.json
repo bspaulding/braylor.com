@@ -1,0 +1,19 @@
+{
+  "name": "braylor.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bspaulding/braylor.com.git"
+  },
+  "author": "Bradley J. Spaulding",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/bspaulding/braylor.com/issues"
+  },
+  "homepage": "https://github.com/bspaulding/braylor.com#readme"
+}
