@@ -1,8 +1,17 @@
-import App from "./components/app.js";
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
+import createBrowserHistory from "history/lib/createBrowserHistory";
+import { Router } from "react-router";
+import routes from "./components/routes.jsx";
 
 import "bootstrap/less/bootstrap.less";
 import "../css/braylor.css";
 
-ReactDOM.render(React.createFactory(App)(window.APP_PROPS), document.querySelector("#react-container"));
+// TODO: Need to inject this here :/
+// let app = React.createFactory(App)(window.APP_PROPS);
+render(
+	<Router history={createBrowserHistory()}>
+		{routes}
+	</Router>,
+	document.querySelector("#react-container")
+);
