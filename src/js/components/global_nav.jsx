@@ -3,12 +3,8 @@ import { Link } from "react-router";
 
 let styles = {
 	ul: {
-		alignItems: "center",
-		display: "flex",
-		flexWrap: "wrap",
 		fontFamily: "Amatic SC",
 		fontSize: 24,
-		justifyContent: "space-around",
 		listStyleType: "none",
 		margin: "0px auto",
 		maxWidth: 512,
