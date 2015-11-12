@@ -1,14 +1,34 @@
 import React from "react";
+import scribbleCircleURL from "../../images/scribble-circle.svg";
+
+let outerStyle = {
+	backgroundImage: "url(" + scribbleCircleURL + ")",
+	backgroundRepeat: "no-repeat",
+	backgroundSize: "120px 120px",
+	fontFamily: "Chalkduster",
+	fontSize: 24,
+	height: 120,
+	lineHeight: "34px",
+	paddingTop: (120 / 2 - 34),
+	textAlign: "center",
+	width: 120
+};
 
 class Countdown extends React.Component {
 	static displayName = "Countdown";
 	static propTypes = {
-		to: React.PropTypes.string.isRequired
+		to: React.PropTypes.string.isRequired,
+		style: React.PropTypes.object
 	};
+	static defaultProps = { style: {} };
 
 	render() {
 		let days = Math.floor((Date.parse(this.props.to) - (new Date()).getTime()) / (1000 * 60 * 60 * 24));
-		return <span>{days} days</span>;
+		return (
+			<div style={Object.assign({}, this.props.style, outerStyle)}>
+				{days} days
+			</div>
+		);
 	}
 }
 

@@ -5,6 +5,7 @@ import { Router } from "react-router";
 import routes from "./components/routes.jsx";
 
 import "bootstrap/less/bootstrap.less";
+import "../css/fonts.less";
 import "../css/braylor.css";
 
 // TODO: Need to inject this here :/

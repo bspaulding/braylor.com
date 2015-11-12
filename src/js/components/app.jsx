@@ -1,6 +1,41 @@
+import Colors from "../colors";
 import Countdown from "./countdown.jsx";
+import GlobalNav from "./global_nav.jsx";
 import React from "react";
-import { Link } from "react-router";
+
+let styles = {
+	header: {
+		fontFamily: "Dancing Script",
+		position: "relative",
+		textAlign: "center"
+	},
+	amp: {
+		color: Colors.heartPink
+	},
+	backToTop: {
+		fontFamily: "Amatic SC",
+		fontSize: 24,
+		textTransform: "capitalize"
+	},
+	countdown: {
+		left: "calc(50% - 300px)",
+		position: "absolute",
+		top: 0
+	},
+	footer: {
+		textAlign: "center"
+	},
+	stem: {
+		position: "absolute",
+		top: "calc(50% - 6px)"
+	},
+	stemLeft: {
+		left: "calc(50% - 69px)",
+	},
+	stemRight: {
+		left: "calc(50% + 20px)",
+	},
+};
 
 class App extends React.Component {
 	static displayName = "App";
@@ -8,13 +43,25 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
-				<Countdown to="May 14, 2016"/>
-				<h1>Taylor & Bradley</h1>
-				<ul>
-					<li><Link to="/story" activeClassName="active">Story</Link></li>
-					<li><Link to="/menu" activeClassName="active">Menu</Link></li>
-				</ul>
-				{this.props.children}
+				<a name="top"></a>
+				<Countdown to="May 14, 2016" style={styles.countdown}/>
+				<div className="row col-xs-12" style={styles.header}>
+					<h1>Taylor</h1>
+					<img src={require("../../images/stem-left.svg")}
+						style={Object.assign({}, styles.stem, styles.stemLeft)}/>
+					<h1 style={styles.amp}>&</h1>
+					<img src={require("../../images/stem-right.svg")}
+						style={Object.assign({}, styles.stem, styles.stemRight)}/>
+					<h1>Bradley</h1>
+				</div>
+				<GlobalNav/>
+				<div className="row col-xs-12">
+					{this.props.children}
+				</div>
+				<div className="row col-xs-12 footer" style={styles.footer}>
+					<h1 style={styles.backToTop}><a className="back-to-top" href="#top">Back To Top</a></h1>
+					<img src={require("../../images/rings-t+b.svg")}/>
+				</div>
 			</div>
 		);
 	}
