@@ -8,7 +8,6 @@ let router = (
 	<Route path="/" component={App}>
 		<IndexRoute component={Story}/>
 		<Route path="menu" component={Menu}/>
-		<Route path="story" component={Story}/>
 	</Route>
 );
 

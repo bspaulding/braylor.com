@@ -25,7 +25,7 @@ class GlobalNav extends React.Component {
 			<div className="row" style={{ marginTop: 20 }}>
 				<div className="col-xs-12" style={{ marginTop: 20 }}>
 					<ul style={styles.ul} className="global-nav">
-						<li style={styles.li}><Link to="/story" activeClassName="active">Story</Link></li>
+						<li style={styles.li}><Link to="/" activeClassName="active">Story</Link></li>
 						<li style={styles.li}><Link to="/menu" activeClassName="active">Menu</Link></li>
 						<li style={styles.li}><Link to="/photos" activeClassName="active">Photos</Link></li>
 						<li style={styles.li}><Link to="/location" activeClassName="active">Location</Link></li>
