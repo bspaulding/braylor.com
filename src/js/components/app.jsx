@@ -45,22 +45,28 @@ class App extends React.Component {
 			<div>
 				<a name="top"></a>
 				<Countdown to="May 14, 2016" style={styles.countdown}/>
-				<div className="row col-xs-12" style={styles.header}>
-					<h1>Taylor</h1>
-					<img src={require("../../images/stem-left.svg")}
-						style={Object.assign({}, styles.stem, styles.stemLeft)}/>
-					<h1 style={styles.amp}>&</h1>
-					<img src={require("../../images/stem-right.svg")}
-						style={Object.assign({}, styles.stem, styles.stemRight)}/>
-					<h1>Bradley</h1>
+				<div className="row" style={styles.header}>
+					<div className="col-xs-12">
+						<h1>Taylor</h1>
+						<img src={require("../../images/stem-left.svg")}
+							style={Object.assign({}, styles.stem, styles.stemLeft)}/>
+						<h1 style={styles.amp}>&</h1>
+						<img src={require("../../images/stem-right.svg")}
+							style={Object.assign({}, styles.stem, styles.stemRight)}/>
+						<h1>Bradley</h1>
+					</div>
 				</div>
 				<GlobalNav/>
-				<div className="row col-xs-12">
-					{this.props.children}
+				<div className="row">
+					<div className="col-xs-12">
+						{this.props.children}
+					</div>
 				</div>
-				<div className="row col-xs-12 footer" style={styles.footer}>
-					<h1 style={styles.backToTop}><a className="back-to-top" href="#top">Back To Top</a></h1>
-					<img src={require("../../images/rings-t+b.svg")}/>
+				<div className="row footer" style={styles.footer}>
+					<div className="col-xs-12">
+						<h1 style={styles.backToTop}><a className="back-to-top" href="#top">Back To Top</a></h1>
+						<img src={require("../../images/rings-t+b.svg")}/>
+					</div>
 				</div>
 			</div>
 		);
