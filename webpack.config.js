@@ -1,3 +1,5 @@
+var PurifyCSSPlugin = require("purifycss-loader/PurifyCssPlugin");
+
 module.exports = [{
   entry: "./src/js/index.jsx",
   output: {
@@ -16,9 +18,9 @@ module.exports = [{
 		}, {
 			test: /\.jpg/, loader: "url?mimetype=image/jpg"
 		}, {
-			test: /\.css/, loaders: ["style", "css", "autoprefixer"]
+			test: /\.css/, loaders: ["style", "css", "autoprefixer", "purifycss"]
 		}, {
-			test: /\.less/, loaders: ["style", "css", "less"]
+			test: /\.less/, loaders: ["style", "css", "autoprefixer", "purifycss", "less"]
 		}, {
 			test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff"
 		}, {
@@ -31,6 +33,9 @@ module.exports = [{
     	test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml"
     }]
   },
+	plugins: [
+		new PurifyCSSPlugin(__dirname, "/dist/index.html")
+	],
 	target: "web"
 }, {
   entry: "./src/js/server.js",
