@@ -16,7 +16,7 @@ module.exports = [{
 		}, {
 			test: /\.jpg/, loader: "url?mimetype=image/jpg"
 		}, {
-			test: /\.css/, loaders: ["style", "css"]
+			test: /\.css/, loaders: ["style", "css", "autoprefixer"]
 		}, {
 			test: /\.less/, loaders: ["style", "css", "less"]
 		}, {
