@@ -7,6 +7,7 @@ import ReactDOMServer from "react-dom/server";
 import { match, RoutingContext } from 'react-router'
 import routes from "./components/routes.jsx";
 import { parse } from "url";
+import zlib from "zlib";
 
 if (cluster.isMaster) {
 	for (var i = 0; i < cpus().length; i += 1) {
@@ -21,6 +22,11 @@ if (cluster.isMaster) {
 var template = fs.readFileSync("./dist/index.html")
 	.toString();
 
+let commonHeaders = {
+	'Cache-Control': 'public, max-age=31536000',
+	'Content-Encoding': 'gzip'
+};
+
 var server = http.createServer((request, response) => {
 	console.log(process.pid + " handling: " + request.url);
 	let path = parse(request.url).pathname;
@@ -32,9 +38,11 @@ var server = http.createServer((request, response) => {
 				return;
 			}
 
-			response.writeHead(200);
-			response.write(data);
-			response.end();
+			zlib.gzip(data, (_, result) => {
+				response.writeHead(200, commonHeaders);
+				response.write(result);
+				response.end();
+			});
 		});
 
 		return;
@@ -43,9 +51,11 @@ var server = http.createServer((request, response) => {
 	match({ routes, location: path }, (error, redirectLocation, props) => {
 		var reactHtml = ReactDOMServer.renderToString(<RoutingContext {...props}/>);
 		var html = template.replace("<!-- REACT_DOM_INSERT -->", reactHtml);
-		response.writeHead(200);
-		response.write(html);
-		response.end();
+		zlib.gzip(html, (_, result) => {
+			response.writeHead(200, Object.assign({'Content-Type': 'text/html'}, commonHeaders));
+			response.write(result);
+			response.end();
+		});
 	});
 });
 
