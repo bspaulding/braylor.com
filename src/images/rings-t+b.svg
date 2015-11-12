@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="94px" height="58px" viewBox="0 0 94 58" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.1 (15681) - http://www.bohemiancoding.com/sketch -->
+    <title>Group + T + B</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Mobile-Portrait" sketch:type="MSArtboardGroup" transform="translate(-111.000000, -939.000000)">
+            <g id="Group-+-T-+-B" sketch:type="MSLayerGroup" transform="translate(95.000000, 905.000000)">
+                <g id="Group" transform="translate(60.500000, 60.531850) rotate(-43.000000) translate(-60.500000, -60.531850) translate(20.000000, 15.531850)" stroke-width="0.5" sketch:type="MSShapeGroup">
+                    <circle id="Oval-25" stroke="#979797" cx="26" cy="38" r="26"></circle>
+                    <polygon id="Triangle-1" stroke="#FFAEAE" transform="translate(26.500000, 7.500000) scale(1, -1) translate(-26.500000, -7.500000) " points="26.5 3 33 12 20 12 "></polygon>
+                    <path d="M22.0967646,-1.70530257e-13 L31.1189647,-1.70530257e-13 L33,2.96344352 L20,2.96344352 L22.0967646,-1.70530257e-13 Z" id="Rectangle-1" stroke="#FFAEAE"></path>
+                    <path d="M25.5,0.5 L24.5,2.5" id="Line" stroke="#FFAEAE" stroke-linecap="square"></path>
+                    <path d="M28.5,0.5 L27.5,2.5" id="Line" stroke="#FFAEAE" stroke-linecap="square" transform="translate(28.000000, 1.500000) scale(-1, 1) translate(-28.000000, -1.500000) "></path>
+                    <path d="M29,3 L27.5,10.5" id="Line" stroke="#FFAEAE" stroke-linecap="square" transform="translate(28.000000, 7.000000) scale(-1, -1) translate(-28.000000, -7.000000) "></path>
+                    <path d="M26,3 L24.5,10.5" id="Line" stroke="#FFAEAE" stroke-linecap="square" transform="translate(25.000000, 7.000000) scale(1, -1) translate(-25.000000, -7.000000) "></path>
+                    <circle id="Oval-25" stroke="#979797" cx="54.6891061" cy="63.7650037" r="26"></circle>
+                </g>
+                <text id="T" sketch:type="MSTextLayer" font-family="Dancing Script" font-size="24" font-weight="normal" fill="#FFFFFF">
+                    <tspan x="37.1902489" y="72">T</tspan>
+                </text>
+                <text id="B" sketch:type="MSTextLayer" font-family="Dancing Script" font-size="24" font-weight="normal" fill="#FFFFFF">
+                    <tspan x="77.1902489" y="72">B</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
