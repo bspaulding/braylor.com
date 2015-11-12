@@ -6,7 +6,7 @@ let styles = {
 		backgroundImage: "url(" + scribbleCircleURL + ")",
 		backgroundRepeat: "no-repeat",
 		backgroundSize: "120px 120px",
-		fontFamily: "Chalkduster",
+		fontFamily: "Eraser",
 		fontSize: 24,
 		height: 120,
 		lineHeight: "34px",
