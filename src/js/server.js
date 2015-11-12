@@ -24,8 +24,8 @@ var template = fs.readFileSync("./dist/index.html")
 var server = http.createServer((request, response) => {
 	console.log(process.pid + " handling: " + request.url);
 	let path = parse(request.url).pathname;
-	if (path === "/client.bundle.js") {
-		fs.readFile("./dist/client.bundle.js", (error, data) => {
+	if (path === "/client.bundle.js" || path.indexOf(".woff") >= 0) {
+		fs.readFile("./dist" + path, (error, data) => {
 			if (error) {
 				response.writeHead(500);
 				response.end();
