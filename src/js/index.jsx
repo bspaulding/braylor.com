@@ -4,7 +4,8 @@ import createBrowserHistory from "history/lib/createBrowserHistory";
 import { Router } from "react-router";
 import routes from "./components/routes.jsx";
 
-import "bootstrap/less/bootstrap.less";
+// import "bootstrap/less/bootstrap.less";
+import "../css/bootstrap.less";
 import "../css/fonts.less";
 import "../css/braylor.css";
 
