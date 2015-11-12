@@ -64,8 +64,8 @@ class App extends React.Component {
 						{this.props.children}
 					</div>
 				</div>
-				<div className="row footer" style={styles.footer}>
-					<div className="col-xs-12">
+				<div className="row footer">
+					<div className="col-xs-12" style={styles.footer}>
 						<h1 style={styles.backToTop}><a className="back-to-top" href="#top">Back To Top</a></h1>
 						<img src={require("../../images/rings-t+b.svg")}/>
 					</div>
