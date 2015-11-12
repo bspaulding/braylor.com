@@ -15,6 +15,7 @@ let styles = {
 	backToTop: {
 		fontFamily: "Amatic SC",
 		fontSize: 24,
+		marginBottom: 30,
 		textTransform: "capitalize"
 	},
 	countdown: {
@@ -23,6 +24,7 @@ let styles = {
 		top: 0
 	},
 	footer: {
+		marginBottom: 40,
 		textAlign: "center"
 	},
 	stem: {

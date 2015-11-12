@@ -1,4 +1,5 @@
 export default {
 	leafGreen: "#67BF7C",
-	heartPink: "#FFAEAD"
+	heartPink: "#FFAEAD",
+	heartPinkShadow: "#D2908F"
 };

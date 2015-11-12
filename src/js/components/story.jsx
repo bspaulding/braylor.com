@@ -9,15 +9,16 @@ let styles = {
 		opacity: 0.5,
 		position: "absolute",
 		top: -10,
-		left: -10,
+		left: 0,
 		zIndex: -1
 	},
 	p: {
 		fontFamily: "Open Sans, sans serif",
-		fontSize: 18,
+		fontSize: 16,
 		lineHeight: "24px",
 		margin: "0px auto 10px",
 		maxWidth: 380,
+		padding: "0px 10px",
 		position: "relative",
 		textShadow: "0px -1px 0px black"
 	}
