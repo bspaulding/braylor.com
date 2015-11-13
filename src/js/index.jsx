@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 import createBrowserHistory from "history/lib/createBrowserHistory";
-import { Router } from "react-router";
+import { Router } from "./ReactRouter";
 import routes from "./components/routes.jsx";
 
 // import "bootstrap/less/bootstrap.less";

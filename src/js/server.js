@@ -4,7 +4,7 @@ import http from "http";
 import { cpus } from "os";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
-import { match, RoutingContext } from 'react-router'
+import { match, RoutingContext } from './ReactRouter'
 import routes from "./components/routes.jsx";
 import { parse } from "url";
 import zlib from "zlib";
