@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Dancing+Script|Amatic+SC|Open+Sans);
+@import "./animation-float.css"
 
 html, body {
   margin: 0px;
@@ -29,9 +30,23 @@ ul.global-nav {
 	justify-content: space-around;
 }
 
+ul.global-nav {
+	animation-name: magicFloat;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
 ul.global-nav li>a {
 	position: relative;
 	transition: all 0.3s ease;
+}
+
+ul.global-nav li>a:hover:before,
+ul.global-nav li>a:hover:after {
+	animation-name: magicFloat;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
 }
 
 ul.global-nav li>a:hover:before,
