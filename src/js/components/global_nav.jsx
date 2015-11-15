@@ -29,7 +29,7 @@ class GlobalNav extends React.Component {
 						<li style={styles.li}><Link to="/menu" activeClassName="active">Menu</Link></li>
 						<li style={styles.li}><Link to="/photos" activeClassName="active">Photos</Link></li>
 						<li style={styles.li}><Link to="/location" activeClassName="active">Location</Link></li>
-						<li style={styles.li}><Link to="/registry" activeClassName="active">Registry</Link></li>
+						<li style={styles.li}><a href="http://www.myregistry.com/public/braylorwedding" target="_blank">Registry</a></li>
 					</ul>
 				</div>
 			</div>
@@ -38,4 +38,3 @@ class GlobalNav extends React.Component {
 }
 
 export default GlobalNav;
-
