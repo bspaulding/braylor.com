@@ -7,8 +7,11 @@ import routes from "./components/routes.jsx";
 // import "bootstrap/less/bootstrap.less";
 import "../css/bootstrap.less";
 import "../css/fonts.less";
-import "../css/location.css";
 import "../css/braylor.css";
+
+// Page Specific Styles
+import "../css/location.css";
+import "../css/photos.css";
 
 // TODO: Need to inject this here :/
 // let app = React.createFactory(App)(window.APP_PROPS);
