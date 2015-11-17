@@ -1,0 +1,23 @@
+.location .images {
+	text-align: center;
+}
+.location .info h1 {
+	text-align: center;
+}
+.location .info .info-detail {
+	margin: 0px auto;
+	width: 210px;
+}
+
+@media(min-width:768px) {
+	.location .images {
+		margin-top: 20px;
+		text-align: right;
+	}
+	.location .info h1 {
+		text-align: left;
+	}
+	.location .info .info-detail {
+		margin: 0px;
+	}
+}
