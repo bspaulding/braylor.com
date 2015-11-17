@@ -1,4 +1,5 @@
 import React from "react";
+import { throttle } from "../utils.js";
 
 function getScaledSize(containerWidth, containerHeight, imageWidth, imageHeight) {
 	var width = imageWidth,
@@ -30,6 +31,20 @@ class LightboxImage extends React.Component {
 
 		this.state = { previewSize: {} };
 		this.imageLoaded = this.imageLoaded.bind(this);
+		this.resized = throttle(this.imageLoaded.bind(this), 250);
+	}
+
+	componentWillMount() {
+		if (typeof window !== "undefined") {
+			window.addEventListener("resize", this.resized);
+			setTimeout(this.resized, 0);
+		}
+	}
+
+	componentWillUnmount() {
+		if (typeof window !== "undefined") {
+			window.removeEventListener("resize", this.resized);
+		}
 	}
 
 	imageLoaded(event) {
@@ -37,8 +52,8 @@ class LightboxImage extends React.Component {
 			previewSize: getScaledSize(
 				window.innerWidth,
 				window.innerHeight,
-				event.target.naturalWidth,
-				event.target.naturalHeight
+				this.refs.image.naturalWidth,
+				this.refs.image.naturalHeight
 			)
 		});
 	}
@@ -58,6 +73,7 @@ class LightboxImage extends React.Component {
 		return (
       <div className="lightbox-image-wrapper" style={wrapperStyle}>
 				<img className="lightbox-image"
+					ref="image"
 					src={this.props.src}
 					onLoad={this.imageLoaded}/>
       </div>

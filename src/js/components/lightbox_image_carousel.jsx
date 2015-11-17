@@ -5,8 +5,8 @@ import React from "react";
 let navButtonStyle = {
 	background: Colors.mineShaft,
 	color: "white",
-	fontSize: 24,
-	padding: "9px 12px 7px",
+	fontSize: 32,
+	padding: "0px 14px 7px",
 	position: "absolute",
 	top: "50%",
 	zIndex: 7
