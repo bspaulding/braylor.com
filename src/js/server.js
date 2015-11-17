@@ -41,7 +41,7 @@ var server = http.createServer((request, response) => {
 			}
 
 			zlib.gzip(data, (_, result) => {
-				response.writeHead(200, commonHeaders);
+				response.writeHead(200, Object.assign({'Access-Control-Allow-Origin': '*'}, commonHeaders));
 				response.write(result);
 				response.end();
 			});

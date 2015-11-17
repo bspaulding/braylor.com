@@ -1,9 +1,11 @@
 var PurifyCSSPlugin = require("purifycss-loader/PurifyCssPlugin");
+var env = require("./config/" + (process.env.NODE_ENV || "development"));
 
 module.exports = [{
   entry: "./src/js/index.jsx",
   output: {
     path: "./dist",
+    publicPath: env.CDN_HOST,
     filename: "client.bundle.js"
   },
   module: {
@@ -41,6 +43,7 @@ module.exports = [{
   entry: "./src/js/server.js",
   output: {
     path: "./dist",
+    publicPath: env.CDN_HOST,
     filename: "server.bundle.js"
   },
   module: {
