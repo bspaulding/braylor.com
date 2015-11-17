@@ -30,7 +30,9 @@ let commonHeaders = {
 var server = http.createServer((request, response) => {
 	console.log(process.pid + " handling: " + request.url);
 	let path = parse(request.url).pathname;
-	if (path === "/client.bundle.js" || path.indexOf(".woff") >= 0) {
+	if (path === "/client.bundle.js" ||
+		path.indexOf(".jpg") >= 0 ||
+		path.indexOf(".woff") >= 0) {
 		fs.readFile("./dist" + path, (error, data) => {
 			if (error) {
 				response.writeHead(500);
