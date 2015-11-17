@@ -52,7 +52,9 @@ module.exports = [{
         cacheDirectory: true,
         presets: ["es2015", "react", "stage-1"]
       }
-		}, {
+    }, {
+    	test: /\.jpg/, loader: "file?mimetype=image/jpg"
+    }, {
     	test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml"
     }]
   },
