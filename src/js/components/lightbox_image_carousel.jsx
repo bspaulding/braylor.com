@@ -72,6 +72,9 @@ class LightboxImageCarousel extends React.Component {
 	render() {
 		return (
 			<div className="lightbox-image-carousel">
+				<div className="lightbox-n-of">
+					{this.props.urls.indexOf(this.props.currentURL) + 1} / {this.props.urls.length}
+				</div>
 				{this.showNavButtons() ?
 				<button style={this.previousButtonStyle()} className="btn btn-link" onClick={this.previous.bind(this)}>
 					<span style={this.previousIconStyle()}>&laquo;</span>
