@@ -43,7 +43,7 @@ class Photos extends React.Component {
 	componentWillMount() {
 		if (typeof window !== "undefined") {
 			window.addEventListener("resize", this.resized);
-			this.resized();
+			setTimeout(this.resized, 0);
 		}
 	}
 
@@ -101,7 +101,7 @@ class Photos extends React.Component {
 					<div className="photo-grid" style={gridStyle}>
 					{page.map((src) => {
 						return (
-							<div className={`col-sm-${colspan} photo`} style={
+							<div key={src} className={`col-sm-${colspan} photo`} style={
 								Object.assign({}, containerStyle, {
 									backgroundImage: `url(${src})`
 								})}>
