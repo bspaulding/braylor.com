@@ -8,6 +8,7 @@ import routes from "./components/routes.jsx";
 import "../css/bootstrap.less";
 import "../css/fonts.less";
 import "../css/braylor.css";
+import "../css/lightbox.css"
 
 // Page Specific Styles
 import "../css/location.css";

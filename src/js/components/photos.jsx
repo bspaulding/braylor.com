@@ -1,5 +1,7 @@
 import Banner from "./banner.jsx";
 import Colors from "../colors.js"
+import Lightbox from "./lightbox.jsx"
+import LightboxImageCarousel from "./lightbox_image_carousel.jsx"
 import React from "react";
 import {
 	chunk,
@@ -36,7 +38,7 @@ class Photos extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = { page: 0, pages: chunk(4, urls) };
+		this.state = { page: 0, pages: chunk(4, urls), lightboxImage: "" };
 		this.resized = throttle(this.resized.bind(this), 500);
 	}
 
@@ -78,6 +80,10 @@ class Photos extends React.Component {
 		}
 	}
 
+	showFullscreen(src) {
+		this.setState({ fullscreenImage: src });
+	}
+
 	render() {
 		let colspan = Math.floor(12 / this.columns());
 		let page = this.state.pages[this.state.page] || [];
@@ -101,7 +107,8 @@ class Photos extends React.Component {
 					<div className="photo-grid" style={gridStyle}>
 					{page.map((src) => {
 						return (
-							<div key={src} className={`col-sm-${colspan} photo`} style={
+							<div key={src} className={`col-sm-${colspan} photo`}
+								onClick={this.showFullscreen.bind(this, src)} style={
 								Object.assign({}, containerStyle, {
 									backgroundImage: `url(${src})`
 								})}>
@@ -111,6 +118,14 @@ class Photos extends React.Component {
 					</div>
 				</div>
 				{pagination}
+				{this.state.fullscreenImage ?
+					<Lightbox onClose={() => this.setState({ fullscreenImage: "" })}>
+						<LightboxImageCarousel
+							currentURL={this.state.fullscreenImage}
+							onChange={this.showFullscreen.bind(this)}
+							urls={urls}/>
+					</Lightbox>
+				: null}
 			</div>
 		);
 	}
