@@ -16,7 +16,7 @@ module.exports = [{
         presets: ["es2015", "react", "stage-1"]
       }
 		}, {
-			test: /\.jpg/, loader: "url?mimetype=image/jpg"
+			test: /\.jpg/, loader: "file?mimetype=image/jpg"
 		}, {
 			test: /\.css/, loaders: ["style", "css", "autoprefixer", "purifycss"]
 		}, {
