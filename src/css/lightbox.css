@@ -35,6 +35,7 @@
   background-color: rgba(33,33,33,0.6);
   display: inline-block;
   padding: 14px;
+  z-index: 3;
 }
 
 .lightbox-image-wrapper {
