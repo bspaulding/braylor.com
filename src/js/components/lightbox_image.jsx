@@ -1,0 +1,68 @@
+import React from "react";
+
+function getScaledSize(containerWidth, containerHeight, imageWidth, imageHeight) {
+	var width = imageWidth,
+		height = imageHeight,
+		scaled = {
+			height: imageHeight,
+			width: imageWidth
+		};
+	if (imageHeight > containerHeight) {
+		height = containerHeight;
+		width = height * imageWidth / imageHeight;
+		return getScaledSize(containerWidth, containerHeight, width, height);
+	} else if (imageWidth > containerWidth) {
+		width = containerWidth;
+		height = width * imageHeight / imageWidth;
+		return getScaledSize(containerWidth, containerHeight, width, height);
+	}
+	return scaled;
+}
+
+class LightboxImage extends React.Component {
+	static displayName = "LightboxImage";
+	static propTypes = {
+		src: React.PropTypes.string.isRequired
+	};
+
+	constructor(props) {
+		super(props);
+
+		this.state = { previewSize: {} };
+		this.imageLoaded = this.imageLoaded.bind(this);
+	}
+
+	imageLoaded(event) {
+		this.setState({
+			previewSize: getScaledSize(
+				window.innerWidth,
+				window.innerHeight,
+				event.target.naturalWidth,
+				event.target.naturalHeight
+			)
+		});
+	}
+
+	render() {
+		let { width, height } = this.state.previewSize;
+		let offsetY = (window.innerHeight - height) / 2;
+		let offsetX = window.innerWidth / 2 - width / 2;
+		let wrapperStyle = {
+			display: "block",
+			height: Math.floor(height),
+			left: Math.floor(offsetX),
+			top: Math.floor(offsetY),
+			width: Math.floor(width)
+		};
+
+		return (
+      <div className="lightbox-image-wrapper" style={wrapperStyle}>
+				<img className="lightbox-image"
+					src={this.props.src}
+					onLoad={this.imageLoaded}/>
+      </div>
+		);
+	}
+}
+
+export default LightboxImage;
