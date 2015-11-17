@@ -8,7 +8,7 @@ html, body {
 
 body {
   background-image: url('../images/chalk-background-repeatable.jpg');
-  font-family: sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: white;
 
   transition: 2s background-image ease;
@@ -109,4 +109,8 @@ ul.global-nav li:first-child {
 
 ul.global-nav li:last-child {
 	padding-right: 0px;
+}
+
+.image-carousel img:hover {
+  opacity: 0.5;
 }
