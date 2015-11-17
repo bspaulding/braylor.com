@@ -110,7 +110,3 @@ ul.global-nav li:first-child {
 ul.global-nav li:last-child {
 	padding-right: 0px;
 }
-
-.image-carousel img:hover {
-  opacity: 0.5;
-}
