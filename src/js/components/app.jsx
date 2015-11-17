@@ -19,7 +19,7 @@ let styles = {
 		textTransform: "capitalize"
 	},
 	countdown: {
-		left: "calc(50% - 210px)",
+		left: "calc(50% - 180px)",
 		position: "absolute",
 		top: 0
 	},
