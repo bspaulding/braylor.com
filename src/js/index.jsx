@@ -7,6 +7,7 @@ import routes from "./components/routes.jsx";
 // import "bootstrap/less/bootstrap.less";
 import "../css/bootstrap.less";
 import "../css/fonts.less";
+import "../css/location.css";
 import "../css/braylor.css";
 
 // TODO: Need to inject this here :/

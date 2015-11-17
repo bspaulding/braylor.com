@@ -8,6 +8,15 @@
 	margin: 0px auto;
 	width: 210px;
 }
+.location .travel-advisory {
+	margin-top: 20px;
+}
+.location
+	.travel-advisory
+	.travel-advisory-inner {
+	margin: 0px auto;
+	max-width: 512px;
+}
 
 @media(min-width:768px) {
 	.location .images {
