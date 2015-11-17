@@ -1,0 +1,41 @@
+.lightbox-container {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0px;
+}
+
+.lightbox-overlay {
+  background-color: rgba(33, 33, 33, 0.6);
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0px;
+  z-index: 1;
+}
+
+.lightbox-content {
+  background-color: transparent;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0px;
+  z-index: 2;
+}
+
+.lightbox-close {
+  font-size: 21px;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  color: #ffffff;
+  width: 44px;
+}
+.lightbox-close:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.lightbox-image-wrapper {
+  box-shadow: 0px 0px 8px #333333;
+  margin: 0px auto;
+  position: absolute;
+}
+
+.lightbox-image-carousel .btn-link:hover {
+  text-decoration: none;
+}
