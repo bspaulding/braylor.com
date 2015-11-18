@@ -1,8 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
-import createBrowserHistory from "history/lib/createBrowserHistory";
-import { Router } from "./ReactRouter";
-import routes from "./components/routes.jsx";
+import { Provider, connect } from "react-redux";
+import { ReduxRouter } from "redux-router";
 
 // import "bootstrap/less/bootstrap.less";
 import "../css/bootstrap.less";
@@ -14,11 +13,13 @@ import "../css/lightbox.css"
 import "../css/location.css";
 import "../css/photos.css";
 
+import store from "./store.js"
+
 // TODO: Need to inject this here :/
 // let app = React.createFactory(App)(window.APP_PROPS);
 render(
-	<Router history={createBrowserHistory()}>
-		{routes}
-	</Router>,
+	<Provider store={store}>
+		<ReduxRouter/>
+	</Provider>,
 	document.querySelector("#react-container")
 );
