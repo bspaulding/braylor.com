@@ -12,7 +12,7 @@ let imageStyle = {
 	borderRadius: "50%",
 	borderStyle: "solid",
 	borderWidth: 2,
-	maxWidth: 320,
+	maxWidth: 280,
 	width: "100%"
 };
 
