@@ -59,7 +59,7 @@ class App extends React.Component {
 					</div>
 				</div>
 				<GlobalNav/>
-				{this.props.children}
+				{React.Children.map(this.props.children, (child) => React.cloneElement(child, this.props) )}
 				<div className="row footer">
 					<div className="col-xs-12" style={styles.footer}>
 						<h1 style={styles.backToTop}><a className="back-to-top" href="#top">Back To Top</a></h1>

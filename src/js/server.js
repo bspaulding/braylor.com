@@ -4,10 +4,16 @@ import http from "http";
 import { cpus } from "os";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
-import { match, RoutingContext } from './ReactRouter'
+import { RoutingContext } from './ReactRouter'
+import { match, reduxReactRouter } from "redux-router/server";
+import { ReduxRouter } from "redux-router";
 import routes from "./components/routes.jsx";
 import { parse } from "url";
 import zlib from "zlib";
+import { makeStore } from "./store.js";
+import { createMemoryHistory } from "history";
+import createLocation from "history/lib/createLocation";
+import { Provider } from "react-redux";
 
 if (cluster.isMaster) {
 	for (var i = 0; i < cpus().length; i += 1) {
@@ -50,15 +56,22 @@ var server = http.createServer((request, response) => {
 		return;
 	}
 
-	match({ routes, location: path }, (error, redirectLocation, props) => {
-		var reactHtml = ReactDOMServer.renderToString(<RoutingContext {...props}/>);
-		var html = template.replace("<!-- REACT_DOM_INSERT -->", reactHtml);
-		zlib.gzip(html, (_, result) => {
-			response.writeHead(200, Object.assign({'Content-Type': 'text/html'}, commonHeaders));
-			response.write(result);
-			response.end();
-		});
-	});
+	let store = makeStore(reduxReactRouter, createMemoryHistory);
+	store.dispatch(
+		match(createLocation(path), (error, redirectLocation, props) => {
+			var reactHtml = ReactDOMServer.renderToString((
+				<Provider store={store}>
+					<ReduxRouter {...props}/>
+				</Provider>
+			));
+			var html = template.replace("<!-- REACT_DOM_INSERT -->", reactHtml);
+			zlib.gzip(html, (_, result) => {
+				response.writeHead(200, Object.assign({'Content-Type': 'text/html'}, commonHeaders));
+				response.write(result);
+				response.end();
+			});
+		})
+	);
 });
 
 var port = process.env.PORT || 3000;

@@ -34,11 +34,22 @@ class Photos extends React.Component {
 	static defaultProps = {
 		columns: 2,
 		compressed: false
-	}
+	};
+	static propTypes = {
+		photos: React.PropTypes.shape({
+			showFullscreenGuide: React.PropTypes.bool.isRequired,
+		}),
+		actions: React.PropTypes.shape({
+			dismissFullscreenGuide: React.PropTypes.func.isRequired
+		})
+	};
 
 	constructor(props) {
 		super(props);
-		this.state = { page: 0, pages: chunk(4, urls), lightboxImage: "" };
+		this.state = {
+			page: 0, pages: chunk(4, urls),
+			lightboxImage: ""
+		};
 		this.resized = throttle(this.resized.bind(this), 500);
 	}
 
@@ -109,6 +120,15 @@ class Photos extends React.Component {
 				{pagination}
 				<div className="col-xs-12">
 					<div className="photo-grid" style={gridStyle}>
+					{this.props.photos.showFullscreenGuide ?
+						<div className="location-fullscreen-guide">
+							<p>Tap a Photo to View Fullscreen!</p>
+							<button className="btn btn-primary"
+								onClick={this.props.actions.dismissFullscreenGuide}>
+								OK, I got it!
+							</button>
+						</div>
+					: null}
 					{page.map((src) => {
 						return (
 							<div key={src} className={`col-sm-${colspan} photo`}

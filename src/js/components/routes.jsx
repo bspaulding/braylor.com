@@ -1,4 +1,4 @@
-import App from "./app.jsx";
+import App from "../containers/app_container.jsx";
 import Menu from "./menu.jsx";
 import Story from "./story.jsx";
 import Photos from "./photos.jsx";

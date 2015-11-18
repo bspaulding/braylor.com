@@ -1,28 +1,25 @@
-import { createHistory } from "history";
-import {
-  reduxReactRouter,
-  routerStateReducer,
-  ReduxRouter
-} from 'redux-router';
+import { routerStateReducer } from 'redux-router';
 import {
   combineReducers,
   applyMiddleware,
   compose,
   createStore
 } from 'redux';
+import createLogger from "redux-logger";
+import photosReducer from "./reducers/photos_reducer.js";
 import routes from "./components/routes.jsx";
 
 const reducer = combineReducers({
-  router: routerStateReducer
+  router: routerStateReducer,
+  photos: photosReducer
 });
 
-const store = compose(
-  // applyMiddleware(m1, m2, m3),
-  reduxReactRouter({
-    routes,
-    createHistory
-  }),
-  // devTools()
-)(createStore)(reducer);
-
-export default store;
+export function makeStore(reduxReactRouter, createHistory, middleware = (x) => x) {
+  return compose(
+    // devTools()
+    reduxReactRouter({
+      routes,
+      createHistory
+    })
+  )(createStore)(reducer);
+}

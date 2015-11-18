@@ -1,5 +1,24 @@
+.photos .photo-grid {
+	position: relative;
+}
+
+.photos .photo-grid .location-fullscreen-guide {
+	position: absolute;
+	z-index: 1;
+	background: rgba(33,33,33,0.6);
+	width: 100%;
+	max-width: 768px;
+	text-align: center;
+	padding-top: 20px;
+	font-weight: bold;
+	height: 240px;
+}
+
 @media (min-width: 768px) {
 	.photos .photo-grid .photo {
 		width: calc(50% - 20px);
+	}
+	.photos .photo-grid .location-fullscreen-guide {
+		height: 500px;
 	}
 }
