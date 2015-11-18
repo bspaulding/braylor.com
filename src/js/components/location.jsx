@@ -4,6 +4,7 @@ import Banner from "./banner.jsx";
 import locationPinSrc from "../../images/location-pin.svg"
 import shareSrc from "../../images/share.svg"
 import phoneSrc from "../../images/phone.svg"
+import temeculaPicSrc from "../../images/TemeculaCreekInn2_1.jpg"
 
 let imageStyle = {
 	boxShadow: "0px 1px 6px #000",
@@ -52,7 +53,7 @@ class Location extends React.Component {
 		return (
 			<div className="row location">
 				<div className="col-sm-6 images">
-					<img style={imageStyle} src="http://www.herecomestheguide.com/images/area_images/TemeculaCreekInn2_1.jpg" />
+					<img style={imageStyle} src={temeculaPicSrc} />
 				</div>
 				<div className="col-sm-6 info">
 					<h1 style={{ fontFamily: "Dancing Script" }}>Temecula Creek Inn</h1>
