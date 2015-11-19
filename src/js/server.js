@@ -32,7 +32,7 @@ if (cluster.isMaster) {
 	});
 } else {
 
-var template = fs.readFileSync("./dist/index.html")
+var template = fs.readFileSync("./dist/index-template.html")
 	.toString();
 
 let commonHeaders = {

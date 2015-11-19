@@ -36,7 +36,7 @@ module.exports = [{
     }]
   },
 	plugins: [
-		new PurifyCSSPlugin(__dirname, "/dist/index.html")
+		new PurifyCSSPlugin(__dirname, "/dist/index-template.html")
 	],
 	target: "web"
 }, {
