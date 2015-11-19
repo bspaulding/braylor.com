@@ -15,6 +15,13 @@ import { createMemoryHistory } from "history";
 import createLocation from "history/lib/createLocation";
 import { Provider } from "react-redux";
 
+// User Id stuff
+import FlakeIdGen from 'flake-idgen';
+import intformat from 'biguint-format';
+import Cookies from "cookies";
+
+let generator = new FlakeIdGen();
+
 if (cluster.isMaster) {
 	for (var i = 0; i < cpus().length; i += 1) {
 		cluster.fork();
@@ -42,6 +49,13 @@ var server = http.createServer((request, response) => {
 		response.write(ip);
 		response.end();
 		return;
+	}
+
+	var cookies = new Cookies(request, response);
+	var userId = cookies.get("userid");
+	if (!userId) {
+		userId = intformat(generator.next(), 'hex', {prefix: "0x"});
+		cookies.set("userid", userId);
 	}
 
 	if (path === "/client.bundle.js" ||
