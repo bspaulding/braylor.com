@@ -5,3 +5,16 @@
 .menu dl dd {
   margin-bottom: 10px;
 }
+
+.menu .wide-left {
+  text-align: center;
+}
+
+@media (min-width:768px) {
+  .menu .wide-left {
+    text-align: right;
+  }
+  .menu .wide-right .center-block {
+    float: left;
+  }
+}

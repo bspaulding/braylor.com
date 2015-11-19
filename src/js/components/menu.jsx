@@ -1,5 +1,17 @@
-import React from "react";
 import Banner from "./banner.jsx";
+import Colors from "../colors.js";
+import React from "react";
+import tablePicSrc from "../../images/tci-table.jpg";
+
+let imageStyle = {
+	boxShadow: "0px 1px 6px #000",
+	borderColor: Colors.heartPink,
+	borderRadius: "50%",
+	borderStyle: "solid",
+	borderWidth: 2,
+	maxWidth: 280,
+	width: "100%"
+};
 
 class Menu extends React.Component {
 	static displayName = "Menu";
@@ -7,7 +19,10 @@ class Menu extends React.Component {
 	render() {
 		return (
 			<div className="row menu">
-				<div className="col-xs-12">
+				<div className="col-sm-6 wide-left">
+					<img style={imageStyle} src={tablePicSrc}/><br/>
+				</div>
+				<div className="col-sm-6 wide-right">
 					<div className="center-block" style={{ maxWidth: 240, width: "100%" }}>
 						<Banner>Starters</Banner>
 						<dl>
