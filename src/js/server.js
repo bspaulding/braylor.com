@@ -34,8 +34,16 @@ let commonHeaders = {
 };
 
 var server = http.createServer((request, response) => {
-	console.log(process.pid + " handling: " + request.url);
+	let ip = request.connection.remoteAddress || request.headers["x-forwarded-for"];
+	console.log(process.pid + " handling: " + request.url + " from " + ip);
 	let path = parse(request.url).pathname;
+	if (path === "/ip-echo") {
+		response.writeHead(200);
+		response.write(ip);
+		response.end();
+		return;
+	}
+	
 	if (path === "/client.bundle.js" ||
 		path.indexOf(".jpg") >= 0 ||
 		path.indexOf(".woff") >= 0) {
