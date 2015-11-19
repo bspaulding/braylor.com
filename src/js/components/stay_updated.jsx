@@ -49,17 +49,17 @@ class StayUpdated extends React.Component {
             <ol>
               <li className="stay-updated-email">
                 <h1 style={styles.h}>Email</h1>
-                <form action="//motingo.us10.list-manage.com/subscribe/post?u=39481cfe45f0f339e076349d8&amp;id=1ac216e465" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+                <form action="//motingo.us10.list-manage.com/subscribe/post?u=39481cfe45f0f339e076349d8&amp;id=1ac216e465" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate="">
                   <div id="mc_embed_signup_scroll">
-                    <div class="mc-field-group">
+                    <div className="mc-field-group">
                       <input type="email" name="EMAIL" placeholder="email address"/>
                       <input type="submit" value="Subscribe to Mailing List" id="mc-embedded-subscribe" className="btn btn-primary" style={styles.emailButton}/>
                     </div>
-                    <div id="mce-responses" class="clear">
-                      <div class="response" id="mce-error-response" style={{ display: "none" }}></div>
-                      <div class="response" id="mce-success-response" style={{ display: "none" }}></div>
+                    <div id="mce-responses" className="clear">
+                      <div className="response" id="mce-error-response" style={{ display: "none" }}></div>
+                      <div className="response" id="mce-success-response" style={{ display: "none" }}></div>
                     </div>
-                    <div style={{ position: "absolute", left: -5000 }}><input type="text" name="b_39481cfe45f0f339e076349d8_1ac216e465" tabindex="-1" value=""/></div>
+                    <div style={{ position: "absolute", left: -5000 }}><input type="text" name="b_39481cfe45f0f339e076349d8_1ac216e465" tabIndex="-1" value=""/></div>
                   </div>
                 </form>
               </li>
