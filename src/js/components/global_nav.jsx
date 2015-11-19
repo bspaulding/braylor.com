@@ -7,7 +7,7 @@ let styles = {
 		fontSize: 24,
 		listStyleType: "none",
 		margin: "0px auto",
-		maxWidth: 512,
+		maxWidth: 640,
 		paddingLeft: 0,
 		textAlign: "center"
 	},
@@ -30,6 +30,7 @@ class GlobalNav extends React.Component {
 						<li style={styles.li}><Link to="/photos" activeClassName="active">Photos</Link></li>
 						<li style={styles.li}><Link to="/location" activeClassName="active">Location</Link></li>
 						<li style={styles.li}><a href="http://www.myregistry.com/public/braylorwedding" target="_blank">Registry</a></li>
+						<li style={styles.li}><Link to="/stay_updated" activeClassName="active">Stay Updated</Link></li>
 					</ul>
 				</div>
 			</div>

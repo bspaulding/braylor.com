@@ -61,10 +61,15 @@ class Welcome extends React.Component {
 							travel tips, as well as more information about accomodations.
 						</p>
 						<p>
-							Most importantly, please be sure to sign up for the mailing list.
+							Most importantly, please be sure to <Link to="/stay_updated">sign up for the mailing list</Link>.
 							That way, you'll be in the know about the latest and greatest Braylor Wedding info!
 							(hint: engagement photos are coming soon!)
 						</p>
+						<div style={{ textAlign: "center" }}>
+							<Link className="btn btn-info" to="/stay_updated">
+								Join the Mailing List
+							</Link>
+						</div>
 					</div>
 				</div>
 			</div>
