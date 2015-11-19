@@ -16,6 +16,7 @@ import "../css/lightbox.css"
 // Page Specific Styles
 import "../css/location.css";
 import "../css/photos.css";
+import "../css/menu.css";
 
 // TODO: Need to inject this here :/
 // let app = React.createFactory(App)(window.APP_PROPS);

@@ -1,0 +1,7 @@
+.menu dl dt {
+  font-weight: bold;
+}
+
+.menu dl dd {
+  margin-bottom: 10px;
+}
