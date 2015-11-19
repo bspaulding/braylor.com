@@ -17,8 +17,6 @@ let styles = {
 	},
 	p: {
 		fontFamily: "Open Sans, sans serif",
-		fontSize: 16,
-		lineHeight: "24px",
 		padding: "0px 10px",
 		position: "relative",
 		textShadow: "0px -1px 0px black"
@@ -49,24 +47,24 @@ class Welcome extends React.Component {
 			<div className="row welcome">
 				<div className="col-xs-12">
 					<div className="center-block" style={{ maxWidth: 640 }}>
+						<div style={styles.image}/>
 						<p style={styles.p}>
 							<span style={styles.fancyLetter}>W</span>
-							<div style={styles.image}/>
 							Welcome! We are so excited that you've made it here!
 							We hope you'll find everything you need to know about our special day,
 							and get super excited to celebrate with us!
 						</p>
-						<p>
+						<p style={styles.p}>
 							Over on the <Link to="/location">location</Link> page, you'll find some helpful
 							travel tips, as well as more information about accomodations.
 						</p>
-						<p>
+						<p style={styles.p}>
 							Most importantly, please be sure to <Link to="/stay_updated">sign up for the mailing list</Link>.
 							That way, you'll be in the know about the latest and greatest Braylor Wedding info!
 							(hint: engagement photos are coming soon!)
 						</p>
 						<div style={{ textAlign: "center" }}>
-							<Link className="btn btn-info" to="/stay_updated">
+							<Link className="btn btn-primary" to="/stay_updated">
 								Join the Mailing List
 							</Link>
 						</div>
