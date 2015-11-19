@@ -7,6 +7,8 @@ import {
 	chunk,
 	throttle
 } from "../utils.js";
+import arrowLeftDown from "../../images/Arrow-Left-Down.svg"
+import arrowRightDown from "../../images/Arrow-Right-Down.svg"
 
 let urls = (function() {
 	var ctx = require.context("../../images/photos/proposal/thumbs");
@@ -122,6 +124,16 @@ class Photos extends React.Component {
 					<div className="photo-grid" style={gridStyle}>
 					{this.props.photos.showFullscreenGuide ?
 						<div className="location-fullscreen-guide">
+							<img src={arrowLeftDown} className="hidden-xs" style={{
+								left: "calc(50% - 160px)",
+								position: "absolute",
+								top: 30
+							}}/>
+							<img src={arrowRightDown} className="hidden-xs" style={{
+								left: "calc(50% + 125px)",
+								position: "absolute",
+								top: 30
+							}}/>
 							<p>Tap a Photo to View Fullscreen!</p>
 							<button className="btn btn-primary"
 								onClick={this.props.actions.dismissFullscreenGuide}>
