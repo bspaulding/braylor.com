@@ -44,12 +44,6 @@ var server = http.createServer((request, response) => {
 	let ip = request.headers["x-forwarded-for"] || request.connection.remoteAddress;
 	console.log(process.pid + " handling: " + request.url + " from " + ip);
 	let path = parse(request.url).pathname;
-	if (path === "/ip-echo") {
-		response.writeHead(200);
-		response.write(ip);
-		response.end();
-		return;
-	}
 
 	var cookies = new Cookies(request, response);
 	var userId = cookies.get("userid");
