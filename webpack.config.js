@@ -5,7 +5,7 @@ module.exports = [{
   entry: "./src/js/index.jsx",
   output: {
     path: "./dist",
-    // publicPath: env.CDN_HOST,
+    publicPath: env.CDN_HOST,
     filename: "client.bundle.js"
   },
   module: {
