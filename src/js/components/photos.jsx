@@ -14,6 +14,10 @@ let urls = (function() {
 	var ctx = require.context("../../images/photos/proposal/thumbs");
 	return ctx.keys().map(ctx);
 }());
+let hiResUrls = (function() {
+	var ctx = require.context("../../images/photos/proposal");
+	return ctx.keys().map(ctx);
+}());
 
 let containerStyle = {
 	backgroundPosition: "center",
@@ -94,7 +98,7 @@ class Photos extends React.Component {
 	}
 
 	showFullscreen(src) {
-		let page = Math.floor(urls.indexOf(src) / (this.state.compressed ? 1 : 4));
+		let page = Math.floor(hiResUrls.indexOf(src) / (this.state.compressed ? 1 : 4));
 		if (!page || page < 0) {
 			page = this.state.page;
 		}
@@ -117,6 +121,7 @@ class Photos extends React.Component {
 			</div>
 		);
 
+		var i = 0;
 		return (
 			<div className="row photos">
 				{pagination}
@@ -142,9 +147,10 @@ class Photos extends React.Component {
 						</div>
 					: null}
 					{page.map((src) => {
+						i += 1;
 						return (
 							<div key={src} className={`col-sm-${colspan} photo`}
-								onClick={this.showFullscreen.bind(this, src)} style={
+								onClick={this.showFullscreen.bind(this, hiResUrls[i])} style={
 								Object.assign({}, containerStyle, {
 									backgroundImage: `url(${src})`
 								})}>
@@ -159,7 +165,7 @@ class Photos extends React.Component {
 						<LightboxImageCarousel
 							currentURL={this.state.fullscreenImage}
 							onChange={this.showFullscreen.bind(this)}
-							urls={urls}/>
+							urls={hiResUrls}/>
 					</Lightbox>
 				: null}
 			</div>
