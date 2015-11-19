@@ -86,7 +86,9 @@ var server = http.createServer((request, response) => {
 					<ReduxRouter {...props}/>
 				</Provider>
 			));
-			var html = template.replace("<!-- REACT_DOM_INSERT -->", reactHtml);
+			var html = template
+				.replace("<!-- REACT_DOM_INSERT -->", reactHtml)
+				.replace("<!-- APP_PROPS_INSERT -->", JSON.stringify(store.getState()));
 			zlib.gzip(html, (_, result) => {
 				response.writeHead(200, Object.assign({'Content-Type': 'text/html'}, commonHeaders));
 				response.write(result);
