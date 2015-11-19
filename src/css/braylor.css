@@ -1,0 +1,106 @@
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script|Amatic+SC|Open+Sans:400,700);
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  min-height: 100%;
+}
+
+body {
+  background-image: url('../images/chalk-background-repeatable-300.jpg');
+  font-family: "Open Sans", sans-serif;
+  color: white;
+
+  transition: 2s background-image ease;
+}
+
+ul.global-nav {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.footer a,
+ul.global-nav li>a {
+  color: white;
+	position: relative;
+	transition: all 0.3s ease;
+}
+
+ul.global-nav li>a:hover:before,
+ul.global-nav li>a:hover:after,
+ul.global-nav li>a.active:before,
+ul.global-nav li>a.active:after {
+	background-image: url('../images/heart.svg');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	content: "";
+	display: inline-block;
+	height: 8px;
+	position: absolute;
+	width: 8px;
+}
+
+ul.global-nav li>a:hover:before,
+ul.global-nav li>a.active:before {
+	left: -12px;
+	top: 50%;
+}
+
+ul.global-nav li>a.active:hover:before {
+	top: 40%;
+}
+
+ul.global-nav li>a:hover:after,
+ul.global-nav li>a.active:after {
+	right: -12px;
+	top: 40%;
+}
+
+ul.global-nav li>a.active:hover:after {
+	top: 50%;
+}
+
+.footer a.back-to-top {
+	position: relative;
+}
+
+.footer a.back-to-top:before,
+.footer a.back-to-top:after {
+	background-repeat: no-repeat;
+	background-size: 100%;
+	content: "";
+	display: inline-block;
+	height: 12px;
+	position: absolute;
+	width: 12px;
+}
+
+.footer a.back-to-top:before {
+	background-image: url('../images/bird-left.svg');
+	left: -16px;
+	top: 50%;
+}
+
+.footer a.back-to-top:hover:before {
+	top: 40%;
+}
+
+.footer a.back-to-top:after {
+	background-image: url('../images/bird-right.svg');
+	right: -16px;
+	top: 40%;
+}
+
+.footer a.back-to-top:hover:after {
+	top: 50%;
+}
+
+ul.global-nav li:first-child {
+	padding-left: 0px;
+}
+
+ul.global-nav li:last-child {
+	padding-right: 0px;
+}

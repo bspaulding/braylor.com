@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="31px" height="84px" viewBox="0 0 31 84" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.2 (15857) - http://www.bohemiancoding.com/sketch -->
+    <title>Arrow-Right-Down</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Assets" sketch:type="MSArtboardGroup" transform="translate(-279.000000, -25.000000)">
+            <g id="Arrow-Right-Down" sketch:type="MSLayerGroup" transform="translate(280.000000, 27.000000)">
+                <path d="M0.708707631,0.5 C0.708707631,0.5 33.3921711,-1.83498902 27.8137644,20.7462651 C21.8226019,44.9983443 17.0019606,68.2152041 17.0019606,68.2152041" id="Line" stroke="#FFFFFF" stroke-width="3" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+                <polygon id="Triangle-17" fill="#FFFFFF" sketch:type="MSShapeGroup" transform="translate(15.598818, 73.268366) rotate(-169.000000) translate(-15.598818, -73.268366) " points="15.5988182 64.768366 24.0988182 81.768366 7.09881816 81.768366 "></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

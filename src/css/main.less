@@ -1,0 +1,43 @@
+@import "./colors.less";
+
+a:link,
+a:visited,
+a:active,
+a:hover {
+	color: white;
+	text-decoration: none;
+}
+
+.welcome p a {
+	color: @heartPink;
+}
+
+.stay-updated .stay-updated-email input[type="email"] {
+	appearance: none;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid white;
+	display: block;
+	line-height: 24px;
+	margin-bottom: 10px;
+	width: 219px;
+}
+
+.stay-updated .stay-updated-email input[type="email"]::placeholder {
+	font-family: "Dancing Script", "Open Sans", sans-serif;
+	font-size: 21px;
+}
+
+.stay-updated .stay-updated-email input[type="email"]:focus {
+	outline: none;
+}
+
+.stay-updated ol {
+	font-family: "Dancing Script", "Open Sans", sans-serif;
+}
+
+.stay-updated li input,
+.stay-updated li button,
+.stay-updated li a {
+	font-family: "Open Sans", sans-serif;
+}
