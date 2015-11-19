@@ -29,4 +29,10 @@
 	.location .info .info-detail {
 		margin: 0px;
 	}
+	.location .column:first-child {
+		float: left;
+	}
+	.location .column:last-child {
+		float: right;
+	}
 }

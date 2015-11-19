@@ -46,6 +46,8 @@ let gridImgStyle = {
 	width: "calc(50% - 15px)",
 };
 
+let colWidth = 242;
+
 class Location extends React.Component {
 	static displayName = "Location";
 
@@ -80,21 +82,21 @@ class Location extends React.Component {
 						</p>
 					</div>
 				</div>
-				<div className="col-xs-12 travel-advisory">
-					<div className="travel-advisory-inner">
-					<p>Ligula. Nunc turpis. Mauris vitae sapien. Nunc luctus bibendum velit.</p>
-
-					<p>Morbi faucibus volutpat sapien. Nam ac mauris at justo adipiscing facilisis.
-					Nunc et velit. Donec auctor, nulla id laoreet volutpat, pede erat feugiat ante,
-					auctor facilisis dui augue non turpis. Suspendisse mattis metus et justo.
-					Aliquam erat volutpat. Suspendisse potenti. Nam hendrerit lorem commodo metus
-					laoreet ullamcorper. Proin vel nunc a felis sollicitudin pretium. Maecenas in
-					metus at mi mollis posuere. Quisque ac quam sed massa adipiscing rutrum.
-					Vestibulum ipsum. Phasellus porta sapien. Maecenas venenatis tellus vel tellus.</p>
-
-					<p>Aliquam aliquam dolor at justo. Cum sociis natoque penatibus et magnis dis
-					parturient montes, nascetur.</p>
-				</div>
+				<div className="col-xs-12">
+					<div className="center-block" style={{ maxWidth: colWidth * 2 + 72 }}>
+						<div className="column" style={{ margin: "0px auto", width: colWidth }}>
+							<Banner>Accomodations</Banner>
+							<p>
+								We have arranged for a special wedding discount on rooms at the Temecula Creek Inn for Friday and Saturday night and encourage you to make reservations before the first of the year as they will begin to fill up in the Spring.
+							</p>
+						</div>
+						<div className="column" style={{ margin: "0px auto", width: colWidth }}>
+							<Banner>Travel</Banner>
+							<p>
+								The closest airport options are to fly into either San Diego or Ontario airport in Los Angeles (Orange County or LAX are also options but are farther away).
+							</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		)
