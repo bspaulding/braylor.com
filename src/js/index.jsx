@@ -10,6 +10,7 @@ import { reduxReactRouter } from 'redux-router';
 // import "bootstrap/less/bootstrap.less";
 import "../css/bootstrap.less";
 import "../css/fonts.less";
+import "../css/main.less";
 import "../css/braylor.css";
 import "../css/lightbox.css"
 
