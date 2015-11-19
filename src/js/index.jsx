@@ -19,10 +19,8 @@ import "../css/location.css";
 import "../css/photos.css";
 import "../css/menu.css";
 
-// TODO: Need to inject this here :/
-// let app = React.createFactory(App)(window.APP_PROPS);
 render(
-	<Provider store={makeStore(reduxReactRouter, createHistory)}>
+	<Provider store={makeStore(reduxReactRouter, createHistory, window.__INITIAL_STATE__)}>
 		<ReduxRouter>
 			{routes}
 		</ReduxRouter>
