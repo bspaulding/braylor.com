@@ -79,6 +79,7 @@ var server = http.createServer((request, response) => {
 	}
 
 	let store = makeStore(reduxReactRouter, createMemoryHistory);
+	store.dispatch({ type: "SET_USER", payload: { userId: userId } });
 	store.dispatch(
 		match(createLocation(path), (error, redirectLocation, props) => {
 			var reactHtml = ReactDOMServer.renderToString((
