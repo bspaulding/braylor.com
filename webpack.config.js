@@ -59,6 +59,8 @@ module.exports = [{
     	test: /\.jpg/, loader: "file?mimetype=image/jpg"
     }, {
     	test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml"
+		}, {
+    	test: /\.json/, loader: "json"
     }]
   },
 	target: "node"
