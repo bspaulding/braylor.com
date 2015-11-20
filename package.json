@@ -35,6 +35,7 @@
     "file-loader": "^0.8.4",
     "flake-idgen": "1.0.0",
     "history": "^1.13.0",
+    "httpplease": "0.16.4",
     "less": "^2.5.3",
     "less-loader": "^2.2.1",
     "purifycss-loader": "1.0.1",
