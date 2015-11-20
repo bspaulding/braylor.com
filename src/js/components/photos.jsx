@@ -105,6 +105,10 @@ class Photos extends React.Component {
 		this.setState({ fullscreenImage: src, page });
 	}
 
+	showThumbFullscreen(src) {
+		this.showFullscreen(hiResUrls[urls.indexOf(src)]);
+	}
+
 	render() {
 		let colspan = Math.floor(12 / this.columns());
 		let page = this.state.pages[this.state.page] || [];
@@ -121,7 +125,6 @@ class Photos extends React.Component {
 			</div>
 		);
 
-		var i = 0;
 		return (
 			<div className="row photos">
 				{pagination}
@@ -147,10 +150,9 @@ class Photos extends React.Component {
 						</div>
 					: null}
 					{page.map((src) => {
-						i += 1;
 						return (
 							<div key={src} className={`col-sm-${colspan} photo`}
-								onClick={this.showFullscreen.bind(this, hiResUrls[i])} style={
+								onClick={this.showThumbFullscreen.bind(this, src)} style={
 								Object.assign({}, containerStyle, {
 									backgroundImage: `url(${src})`
 								})}>
