@@ -25,7 +25,7 @@ export function makeStore(reduxReactRouter, createHistory, initialState) {
 		reduxReactRouter({
 			routes,
 			createHistory
-		})
+		}),
 		applyMiddleware(tracking)
 	)(createStore)(reducer, initialState);
 }
