@@ -10,6 +10,7 @@ import createLogger from "redux-logger";
 import photosReducer from "./reducers/photos_reducer.js";
 import userReducer from "./reducers/user_reducer.js";
 import routes from "./components/routes.jsx";
+import tracking from "./middleware/tracking_middleware.js";
 
 const reducer = combineReducers({
 	router: routerStateReducer,
@@ -25,5 +26,6 @@ export function makeStore(reduxReactRouter, createHistory, initialState) {
 			routes,
 			createHistory
 		})
+		applyMiddleware(tracking)
 	)(createStore)(reducer, initialState);
 }
