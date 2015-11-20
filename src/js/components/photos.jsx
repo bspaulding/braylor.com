@@ -15,7 +15,7 @@ let urls = (function() {
 	return ctx.keys().map(ctx);
 }());
 let hiResUrls = (function() {
-	var ctx = require.context("../../images/photos/proposal");
+	var ctx = require.context("../../images/photos/proposal/hires");
 	return ctx.keys().map(ctx);
 }());
 
