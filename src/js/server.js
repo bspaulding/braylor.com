@@ -72,16 +72,16 @@ var server = http.createServer((request, response) => {
 		return;
 	}
 
-	if (path !== "/") {
-		response.writeHead(404);
-		response.end();
-		return;
-	}
-
 	let store = makeStore(reduxReactRouter, createMemoryHistory);
 	store.dispatch({ type: "SET_USER", payload: { userId: userId } });
 	store.dispatch(
 		match(createLocation(path), (error, redirectLocation, props) => {
+			if (!props) {
+				response.writeHead(404);
+				response.end();
+				return;
+			}
+
 			var reactHtml = ReactDOMServer.renderToString((
 				<Provider store={store}>
 					<ReduxRouter {...props}/>
