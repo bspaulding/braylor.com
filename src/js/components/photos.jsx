@@ -98,9 +98,13 @@ class Photos extends React.Component {
 	}
 
 	showFullscreen(src) {
+		if (!src) {
+			return ;
+		}
+
 		let page = Math.floor(hiResUrls.indexOf(src) / (this.state.compressed ? 1 : 4));
-		if (!page || page < 0) {
-			page = this.state.page;
+		if (page < 0 || page >= hiResUrls.length) {
+			return; // sanity check. something went wrong here, just bail.
 		}
 		this.setState({ fullscreenImage: src, page });
 	}
