@@ -30,9 +30,6 @@ let styles = {
 		borderRadius: "50%",
 		borderStyle: "solid",
 		borderWidth: 2,
-		float: "right",
-		marginLeft: 20,
-		marginRight: 20,
 		height: 280,
 		maxWidth: 280,
 		width: "100%"
@@ -47,7 +44,7 @@ class Welcome extends React.Component {
 			<div className="row welcome">
 				<div className="col-xs-12">
 					<div className="center-block" style={{ maxWidth: 640 }}>
-						<div style={styles.image}/>
+						<div className="image" style={styles.image}/>
 						<p style={styles.p}>
 							<span style={styles.fancyLetter}>W</span>
 							Welcome! We are so excited that you've made it here!

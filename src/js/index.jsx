@@ -18,6 +18,7 @@ import "../css/lightbox.css"
 import "../css/location.css";
 import "../css/photos.css";
 import "../css/menu.css";
+import "../css/welcome.less";
 
 render(
 	<Provider store={makeStore(reduxReactRouter, createHistory, window.__INITIAL_STATE__)}>
