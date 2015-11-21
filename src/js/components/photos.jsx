@@ -132,7 +132,7 @@ class Photos extends React.Component {
 					: null}
 					{page.map((src) => {
 						return (
-							<Link key={src} to={`/photos/${currentIndex}?fullscreen=true`}>
+							<Link key={src} to={`/photos/${urls.indexOf(src)}?fullscreen=true`}>
 								<GalleryImage
 									className={`col-sm-${colspan} photo`}
 									src={src}
