@@ -14,8 +14,6 @@ import { makeStore } from "./store.js";
 import { createMemoryHistory } from "history";
 import createLocation from "history/lib/createLocation";
 import { Provider } from "react-redux";
-import AWS from "aws-sdk";
-import doc from "dynamodb-doc";
 
 // User Id stuff
 import FlakeIdGen from 'flake-idgen';
@@ -46,25 +44,6 @@ var server = http.createServer((request, response) => {
 	let ip = request.headers["x-forwarded-for"] || request.connection.remoteAddress;
 	console.log(process.pid + " handling: " + request.url + " from " + ip);
 	let path = parse(request.url).pathname;
-
-	if (path === "/spy") {
-		AWS.config.update({region: "us-west-1"});
-		var dynamo = new doc.DynamoDB();
-		dynamo.scan({
-			TableName: "BraylorStatesStaging"
-		}, function(error, done) {
-			if (error) {
-				response.writeHead(500);
-				response.write(JSON.stringify(error));
-				response.end();
-			} else {
-				response.writeHead(200);
-				response.write(JSON.stringify(done));
-				response.end();
-			}
-		});
-		return;
-	}
 
 	var cookies = new Cookies(request, response);
 	var userId = cookies.get("userid");
