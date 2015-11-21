@@ -1,4 +1,5 @@
 import React from "react";
+import Loading from "./loading.jsx";
 import { throttle } from "../utils.js";
 
 function getScaledSize(containerWidth, containerHeight, imageWidth, imageHeight) {
@@ -20,6 +21,8 @@ function getScaledSize(containerWidth, containerHeight, imageWidth, imageHeight)
 	return scaled;
 }
 
+let defaultState = { previewSize: {}, loading: true }
+
 class LightboxImage extends React.Component {
 	static displayName = "LightboxImage";
 	static propTypes = {
@@ -29,9 +32,9 @@ class LightboxImage extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = { previewSize: {} };
+		this.state = defaultState;
 		this.imageLoaded = this.imageLoaded.bind(this);
-		this.resized = throttle(this.imageLoaded.bind(this), 250);
+		this.resized = throttle(this.resized.bind(this), 250);
 	}
 
 	componentWillMount() {
@@ -47,13 +50,31 @@ class LightboxImage extends React.Component {
 		}
 	}
 
-	imageLoaded(event) {
+	componentWillReceiveProps(props) {
+		if (props.src !== this.props.src) {
+			this.setState({ loading: true });
+		}
+	}
+
+	resized() {
 		this.setState({
 			previewSize: getScaledSize(
 				window.innerWidth,
 				window.innerHeight,
-				this.refs.image.naturalWidth,
-				this.refs.image.naturalHeight
+				this.refs.image.naturalWidth || window.innerWidth,
+				this.refs.image.naturalHeight || window.innerHeight
+			)
+		});
+	}
+
+	imageLoaded(event) {
+		this.setState({
+			loading: false,
+			previewSize: getScaledSize(
+				window.innerWidth,
+				window.innerHeight,
+				this.refs.image.naturalWidth || window.innerWidth,
+				this.refs.image.naturalHeight || window.innerHeight
 			)
 		});
 	}
@@ -72,7 +93,11 @@ class LightboxImage extends React.Component {
 
 		return (
       <div className="lightbox-image-wrapper" style={wrapperStyle}>
+				{this.state.loading ?
+					<Loading/>
+				: null}
 				<img className="lightbox-image"
+					style={{ display: this.state.loading ? "none" : "initial" }}
 					ref="image"
 					src={this.props.src}
 					onLoad={this.imageLoaded}/>
