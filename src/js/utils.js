@@ -9,7 +9,7 @@ export function throttle (fn, limit) {
         wait = false;
       }, limit);
     }
-  }
+  };
 }
 
 export function chunk(n, xs) {

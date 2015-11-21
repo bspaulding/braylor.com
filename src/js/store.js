@@ -6,7 +6,6 @@ import {
 	createStore
 } from 'redux';
 import persistState from 'redux-localstorage';
-import createLogger from "redux-logger";
 import photosReducer from "./reducers/photos_reducer.js";
 import userReducer from "./reducers/user_reducer.js";
 import routes from "./components/routes.jsx";

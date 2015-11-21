@@ -2,10 +2,10 @@ import httpplease from "httpplease";
 
 let url = "https://xfxjfz6cqf.execute-api.us-west-2.amazonaws.com/staging/events";
 
-let actionsToIgnore = [
-	"@@reduxReactRouter/replaceRoutes",
-	"@@reduxReactRouter/match"
-];
+// let actionsToIgnore = [
+// 	"@@reduxReactRouter/replaceRoutes",
+// 	"@@reduxReactRouter/match"
+// ];
 
 function postState(state) {
 	httpplease({
@@ -30,6 +30,6 @@ const tracker = store => next => action => {
 	// }
 
 	return result;
-}
+};
 
 export default tracker;

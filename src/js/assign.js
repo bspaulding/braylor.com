@@ -8,6 +8,6 @@ let assign = Object.assign || function assign(x, ...xs) {
 	}
 
 	return x;
-}
+};
 
 export default assign;

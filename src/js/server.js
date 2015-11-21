@@ -1,13 +1,13 @@
+/* global process */
+
 import fs from "fs";
 import cluster from "cluster";
 import http from "http";
 import { cpus } from "os";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
-import { RoutingContext } from './ReactRouter'
 import { match, reduxReactRouter } from "redux-router/server";
 import { ReduxRouter } from "redux-router";
-import routes from "./components/routes.jsx";
 import { parse } from "url";
 import zlib from "zlib";
 import { makeStore } from "./store.js";
@@ -29,8 +29,10 @@ if (cluster.isMaster) {
 		cluster.fork();
 	}
 
-	cluster.on('exit', function(worker, code, signal) {
+	cluster.on('exit', function(worker/*, code, signal */) {
+		/* eslint-disable no-console */
 		console.log('worker ' + worker.process.pid + ' died');
+		/* eslint-enable no-console */
 	});
 } else {
 
@@ -43,9 +45,12 @@ let commonHeaders = {
 };
 
 var server = http.createServer((request, response) => {
+	/* eslint complexity: [2, 6] */
 	let ip = request.headers["x-forwarded-for"] || request.connection.remoteAddress;
 	let agent = request.headers["user-agent"];
+	/* eslint-disable no-console */
 	console.log(process.pid + " handling: " + request.url + " from " + ip);
+	/* eslint-enable no-console */
 	let path = parse(request.url).pathname;
 
 	var cookies = new Cookies(request, response);
@@ -102,8 +107,12 @@ var server = http.createServer((request, response) => {
 	);
 });
 
+/* eslint-disable no-process-env */
 var port = process.env.PORT || 3000;
+/* eslint-enable no-process-env */
 server.listen(port, () => {
+	/* eslint-disable no-console */
 	console.log("Server listening on port " + port);
+	/* eslint-enable no-console */
 });
 }

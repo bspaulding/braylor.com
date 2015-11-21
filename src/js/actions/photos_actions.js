@@ -4,5 +4,5 @@ let actions = {
   dismissFullscreenGuide: function() {
     return { type: DISMISS_FULLSCREEN_GUIDE };
   }
-}
+};
 export default actions;
