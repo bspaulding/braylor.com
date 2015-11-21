@@ -14,6 +14,7 @@ import { makeStore } from "./store.js";
 import { createMemoryHistory } from "history";
 import createLocation from "history/lib/createLocation";
 import { Provider } from "react-redux";
+import { setUser } from "./actions/user_actions.js";
 
 // User Id stuff
 import FlakeIdGen from 'flake-idgen';
@@ -73,7 +74,7 @@ var server = http.createServer((request, response) => {
 	}
 
 	let store = makeStore(reduxReactRouter, createMemoryHistory);
-	store.dispatch({ type: "SET_USER", payload: { userId: userId } });
+	store.dispatch(setUser(userId));
 	store.dispatch(
 		match(createLocation(path), (error, redirectLocation, props) => {
 			if (!props) {

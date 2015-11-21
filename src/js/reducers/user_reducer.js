@@ -1,4 +1,4 @@
-export const SET_USER = "SET_USER";
+import { SET_USER } from "../actions/user_actions.js";
 
 let initialState =  {};
 
