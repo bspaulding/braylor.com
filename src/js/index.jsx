@@ -1,9 +1,9 @@
 import React from "react";
 import { render } from "react-dom";
-import { Provider, connect } from "react-redux";
+import { Provider } from "react-redux";
 import { ReduxRouter } from "redux-router";
-import routes from "./components/routes.jsx"
-import { makeStore } from "./store.js"
+import routes from "./components/routes.jsx";
+import { makeStore } from "./store.js";
 import { createHistory } from "history";
 import { reduxReactRouter } from 'redux-router';
 
@@ -12,7 +12,7 @@ import "../css/bootstrap.less";
 import "../css/fonts.less";
 import "../css/main.less";
 import "../css/braylor.css";
-import "../css/lightbox.css"
+import "../css/lightbox.css";
 import "../css/spin.css";
 
 // Page Specific Styles

@@ -108,6 +108,8 @@ let styles = {
 };
 
 class Banner extends React.Component {
+	static displayName =  "Banner";
+
 	render() {
 		return (
 			<div className="banner" style={styles.outer}>
@@ -124,7 +126,9 @@ class Banner extends React.Component {
 				<div style={styles.center}>
 					<div style={styles.shadowLeft}/>
 					<div style={styles.shadowRight}/>
-					{this.props.children}
+					{/* eslint-disable react/prop-types */
+					this.props.children
+					/* eslint-enable react/prop-types */}
 				</div>
 			</div>
 		);

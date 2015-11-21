@@ -1,6 +1,5 @@
 import App from "../components/app.jsx";
-import { connect, Provider } from "react-redux";
-import React from "react";
+import { connect } from "react-redux";
 import actions from "../actions/photos_actions";
 import { bindActionCreators } from "redux";
 

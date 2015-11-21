@@ -1,6 +1,4 @@
-import Colors from "../colors.js";
 import { Link } from "react-router";
-import ModalPortal from "./modal_portal.jsx";
 import React from "react";
 
 class Lightbox extends React.Component {
@@ -18,7 +16,9 @@ class Lightbox extends React.Component {
 						to={this.props.closePath}>
 						x
 					</Link>
-					{this.props.children}
+					{/* eslint-disable react/prop-types */
+					this.props.children
+					/* eslint-enable react/prop-types */}
 				</div>
 			</div>
 		);

@@ -1,5 +1,5 @@
-import assign from "../assign.js";
-import Banner from "./banner.jsx";
+/* global require */
+
 import Colors from "../colors.js";
 import GalleryImage from "./gallery_image.jsx";
 import Lightbox from "./lightbox.jsx";
@@ -16,11 +16,11 @@ import arrowRightDown from "../../images/Arrow-Right-Down.svg";
 let urls = (function() {
 	var ctx = require.context("../../images/photos/proposal/thumbs");
 	return ctx.keys().map(ctx);
-}());
+})();
 let hiResUrls = (function() {
 	var ctx = require.context("../../images/photos/proposal/hires");
 	return ctx.keys().map(ctx);
-}());
+})();
 
 let containerStyle = {
 	border: `1px solid ${Colors.heartPink}`,
@@ -41,6 +41,15 @@ class Photos extends React.Component {
 		columns: 2
 	};
 	static propTypes = {
+		columns: React.PropTypes.number,
+		location: React.PropTypes.shape({
+			query: React.PropTypes.shape({
+				fullscreen: React.PropTypes.bool
+			})
+		}),
+		params: React.PropTypes.shape({
+			photoId: React.PropTypes.number
+		}).isRequired,
 		photos: React.PropTypes.shape({
 			showFullscreenGuide: React.PropTypes.bool.isRequired,
 		}),
@@ -82,6 +91,7 @@ class Photos extends React.Component {
 	}
 
 	render() {
+		/* eslint complexity: [2, 10] */
 		let colspan = Math.floor(12 / this.columns());
 		let src = urls[this.props.params.photoId || 0];
 

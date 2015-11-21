@@ -1,10 +1,10 @@
 import Colors from "../colors.js";
 import React from "react";
 import Banner from "./banner.jsx";
-import locationPinSrc from "../../images/location-pin.svg"
-import shareSrc from "../../images/share.svg"
-import phoneSrc from "../../images/phone.svg"
-import temeculaPicSrc from "../../images/TemeculaCreekInn2_1.jpg"
+import locationPinSrc from "../../images/location-pin.svg";
+import shareSrc from "../../images/share.svg";
+import phoneSrc from "../../images/phone.svg";
+import temeculaPicSrc from "../../images/TemeculaCreekInn2_1.jpg";
 
 let imageStyle = {
 	boxShadow: "0px 1px 6px #000",
@@ -29,22 +29,6 @@ function makeSectionStyle(src) {
 let locationStyle = makeSectionStyle(locationPinSrc);
 let websiteStyle = makeSectionStyle(shareSrc);
 let phoneStyle = makeSectionStyle(phoneSrc);
-
-let gridStyle = {
-	width: "100%",
-	maxWidth: 240,
-	float: "right",
-	marginTop: 20,
-	height: "0%"
-};
-
-let gridImgStyle = {
-	cursor: "pointer",
-	display: "inline-block",
-	height: 70,
-	marginBottom: 20,
-	width: "calc(50% - 15px)",
-};
 
 let colWidth = 242;
 
@@ -99,7 +83,7 @@ class Location extends React.Component {
 					</div>
 				</div>
 			</div>
-		)
+		);
 	}
 }
 

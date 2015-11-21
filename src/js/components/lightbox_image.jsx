@@ -21,7 +21,7 @@ function getScaledSize(containerWidth, containerHeight, imageWidth, imageHeight)
 	return scaled;
 }
 
-let defaultState = { previewSize: {}, loading: true }
+let defaultState = { previewSize: {}, loading: true };
 
 class LightboxImage extends React.Component {
 	static displayName = "LightboxImage";
@@ -67,7 +67,7 @@ class LightboxImage extends React.Component {
 		});
 	}
 
-	imageLoaded(event) {
+	imageLoaded() {
 		this.setState({
 			loading: false,
 			previewSize: getScaledSize(

@@ -49,7 +49,7 @@ class Menu extends React.Component {
 					</div>
 				</div>
 			</div>
-		)
+		);
 	}
 }
 

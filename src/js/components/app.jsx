@@ -1,3 +1,5 @@
+/* global require */
+
 import assign from "../assign.js";
 import Colors from "../colors";
 import Countdown from "./countdown.jsx";
@@ -60,7 +62,9 @@ class App extends React.Component {
 					</div>
 				</div>
 				<GlobalNav/>
-				{React.Children.map(this.props.children, (child) => React.cloneElement(child, this.props) )}
+				{/* eslint-disable react/prop-types */
+				React.Children.map(this.props.children, (child) => React.cloneElement(child, this.props) )
+				/* eslint-enable react/prop-types */}
 				<div className="row footer">
 					<div className="col-xs-12" style={styles.footer}>
 						<h1 style={styles.backToTop}><a className="back-to-top" href="#top">Back To Top</a></h1>
@@ -72,4 +76,4 @@ class App extends React.Component {
 	}
 }
 
-export default App
+export default App;

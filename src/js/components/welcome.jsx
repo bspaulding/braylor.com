@@ -1,7 +1,6 @@
-import Banner from "./banner.jsx";
 import Colors from "../colors.js";
 import React from "react";
-import welcomePicSrc from "../../images/photos/proposal/thumbs/la-jolla-shores-spaulding-proposal27.jpg"
+import welcomePicSrc from "../../images/photos/proposal/thumbs/la-jolla-shores-spaulding-proposal27.jpg";
 import { Link } from "react-router";
 
 let styles = {

@@ -44,8 +44,8 @@ class GalleryImage extends React.Component {
 				style={style}>
 				{this.state.loading ?  <Loading/> : null}
 				<img style={{ display: "none" }}
-						src={this.props.src}
-						onLoad={() => this.imageLoaded()}/>
+					src={this.props.src}
+					onLoad={() => this.imageLoaded()}/>
 			</div>
 		);
 	}
