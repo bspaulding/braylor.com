@@ -91,16 +91,19 @@ class Photos extends React.Component {
 		let pageNum = Math.floor(currentIndex / perPage);
 		let page = pages[pageNum] || [];
 
-		let previousPhotoId = currentIndex === 0 ? urls.length - perPage : currentIndex -  perPage;
-		let nextPhotoId = currentIndex === urls.length - perPage ? 0 : currentIndex + perPage;
+		let previousPhotoId = currentIndex === 0 ? urls.length - 1 : currentIndex -  1;
+		let nextPhotoId = currentIndex === urls.length - 1 ? 0 : currentIndex + 1;
+
+		let previousPageId = currentIndex === 0 ? urls.length - perPage : currentIndex -  perPage;
+		let nextPageId = currentIndex === urls.length - perPage ? 0 : currentIndex + perPage;
 
 		let pagination = (
 			<div className="col-xs-12" style={{ textAlign: "center", marginBottom: 20 }}>
-				<Link to={`/photos/${previousPhotoId}`} className="btn btn-link">
+				<Link to={`/photos/${previousPageId}`} className="btn btn-link">
 					&laquo; Previous
 				</Link>
 				Page {pageNum + 1} of {pages.length}
-				<Link to={`/photos/${nextPhotoId}`} className="btn btn-link">
+				<Link to={`/photos/${nextPageId}`} className="btn btn-link">
 					Next &raquo;
 				</Link>
 			</div>
