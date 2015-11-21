@@ -74,7 +74,7 @@ var server = http.createServer((request, response) => {
 	}
 
 	let store = makeStore(reduxReactRouter, createMemoryHistory);
-	store.dispatch(setUser(userId));
+	store.dispatch(setUser(userId, ip));
 	store.dispatch(
 		match(createLocation(path), (error, redirectLocation, props) => {
 			if (!props) {

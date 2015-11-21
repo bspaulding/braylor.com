@@ -10,7 +10,8 @@ export default function userReducer(state, action) {
 	switch (action.type) {
 	case SET_USER:
 		return {
-			id: action.payload.userId
+			id: action.payload.userId,
+			ipAddress: action.payload.ipAddress
 		};
 	default:
 		return state;
