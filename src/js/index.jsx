@@ -13,6 +13,7 @@ import "../css/fonts.less";
 import "../css/main.less";
 import "../css/braylor.css";
 import "../css/lightbox.css"
+import "../css/spin.css";
 
 // Page Specific Styles
 import "../css/location.css";
