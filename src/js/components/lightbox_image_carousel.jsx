@@ -1,6 +1,7 @@
 import assign from "../assign.js";
 import Colors from "../colors.js";
 import LightboxImage from "./lightbox_image.jsx";
+import { Link } from "react-router";
 import React from "react";
 
 let navButtonHeight = 54;
@@ -29,23 +30,9 @@ class LightboxImageCarousel extends React.Component {
 		return index === this.props.urls.length - 1;
 	}
 
-	next() {
-		let index = this.props.urls.indexOf(this.props.currentURL);
-		if (index !== this.props.urls.length) {
-			this.props.onChange(this.props.urls[index + 1]);
-		}
-	}
-
 	previousDisabled() {
 		let index = this.props.urls.indexOf(this.props.currentURL);
 		return index === 0;
-	}
-
-	previous() {
-		let index = this.props.urls.indexOf(this.props.currentURL);
-		if (index !== 0) {
-			this.props.onChange(this.props.urls[index - 1]);
-		}
 	}
 
 	nextIconStyle() {
@@ -79,15 +66,19 @@ class LightboxImageCarousel extends React.Component {
 					{this.props.urls.indexOf(this.props.currentURL) + 1} / {this.props.urls.length}
 				</div>
 				{this.showNavButtons() ?
-				<button style={this.previousButtonStyle()} className="btn btn-link" onClick={this.previous.bind(this)}>
+				<Link style={this.previousButtonStyle()}
+					className="btn btn-link"
+					to={this.props.previousPath}>
 					<span style={this.previousIconStyle()}>&laquo;</span>
-				</button>
+				</Link>
 				: null}
 				<LightboxImage src={this.props.currentURL}/>
 				{this.showNavButtons() ?
-				<button style={this.nextButtonStyle()} className="btn btn-link" onClick={this.next.bind(this)}>
+				<Link style={this.nextButtonStyle()}
+					className="btn btn-link"
+					to={this.props.nextPath}>
 					<span style={this.nextIconStyle()}>&raquo;</span>
-				</button>
+				</Link>
 				: null}
 			</div>
 		);
@@ -98,10 +89,8 @@ LightboxImageCarousel.displayName = "LightboxImageCarousel";
 LightboxImageCarousel.propTypes = {
 	urls: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
 	currentURL: React.PropTypes.string.isRequired,
-	onChange: React.PropTypes.func
-};
-LightboxImageCarousel.defaultProps = {
-	onChange: () => {}
+	previousPath: React.PropTypes.string.isRequired,
+	nextPath: React.PropTypes.string.isRequired
 };
 
 

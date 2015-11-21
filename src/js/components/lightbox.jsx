@@ -1,27 +1,26 @@
 import Colors from "../colors.js";
+import { Link } from "react-router";
 import ModalPortal from "./modal_portal.jsx";
 import React from "react";
 
 class Lightbox extends React.Component {
 	static displayName = "Lightbox";
 	static propTypes = {
-		onClose: React.PropTypes.func.isRequired
+		closePath: React.PropTypes.string.isRequired
 	};
 
 	render() {
 		return (
-			<ModalPortal>
-				<div className="lightbox-container">
-					<div className="lightbox-overlay"/>
-					<div className="lightbox-content">
-						<button className="btn btn-link lightbox-close"
-							onClick={this.props.onClose}>
-							x
-						</button>
-						{this.props.children}
-					</div>
+			<div className="lightbox-container">
+				<div className="lightbox-overlay"/>
+				<div className="lightbox-content">
+					<Link className="btn btn-link lightbox-close"
+						to={this.props.closePath}>
+						x
+					</Link>
+					{this.props.children}
 				</div>
-			</ModalPortal>
+			</div>
 		);
 	}
 }

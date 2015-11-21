@@ -4,6 +4,7 @@ import Colors from "../colors.js";
 import GalleryImage from "./gallery_image.jsx";
 import Lightbox from "./lightbox.jsx";
 import LightboxImageCarousel from "./lightbox_image_carousel.jsx";
+import { Link } from "react-router";
 import React from "react";
 import {
 	chunk,
@@ -37,8 +38,7 @@ let gridStyle = {
 class Photos extends React.Component {
 	static displayName = "Photos";
 	static defaultProps = {
-		columns: 2,
-		compressed: false
+		columns: 2
 	};
 	static propTypes = {
 		photos: React.PropTypes.shape({
@@ -51,10 +51,7 @@ class Photos extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {
-			page: 0, pages: chunk(4, urls),
-			lightboxImage: ""
-		};
+		this.state = { compressed: false };
 		this.resized = throttle(this.resized.bind(this), 500);
 	}
 
@@ -71,14 +68,6 @@ class Photos extends React.Component {
 		}
 	}
 
-	next() {
-		this.setState({ page: this.state.page === this.state.pages.length - 1 ? 0 : this.state.page + 1 });
-	}
-
-	previous() {
-		this.setState({ page: this.state.page === 0 ? this.state.pages.length - 1 : this.state.page - 1 })
-	}
-
 	columns() {
 		return this.state.compressed ? 1 : this.props.columns;
 	}
@@ -86,45 +75,34 @@ class Photos extends React.Component {
 	resized() {
 		let isCompressed = window.innerWidth < 768;
 		if (isCompressed !== this.state.compressed) {
-			let perPage = isCompressed ? 1 : 4;
-			let currentIndex = this.state.page * (this.state.compressed ? 1 : 4);
 			this.setState({
 				compressed: isCompressed,
-				pages: chunk(perPage, urls),
-				page: Math.floor(currentIndex / perPage)
 			});
 		}
 	}
 
-	showFullscreen(src) {
-		if (!src) {
-			return ;
-		}
-
-		let page = Math.floor(hiResUrls.indexOf(src) / (this.state.compressed ? 1 : 4));
-		if (page < 0 || page >= hiResUrls.length) {
-			return; // sanity check. something went wrong here, just bail.
-		}
-		this.setState({ fullscreenImage: src, page });
-	}
-
-	showThumbFullscreen(src) {
-		this.showFullscreen(hiResUrls[urls.indexOf(src)]);
-	}
-
 	render() {
 		let colspan = Math.floor(12 / this.columns());
-		let page = this.state.pages[this.state.page] || [];
+		let src = urls[this.props.params.photoId || 0];
+
+		let perPage = this.state.compressed ? 1 : 4;
+		let currentIndex = urls.indexOf(src);
+		let pages = chunk(perPage, urls);
+		let pageNum = Math.floor(currentIndex / perPage);
+		let page = pages[pageNum] || [];
+
+		let previousPhotoId = currentIndex === 0 ? urls.length - perPage : currentIndex -  perPage;
+		let nextPhotoId = currentIndex === urls.length - perPage ? 0 : currentIndex + perPage;
 
 		let pagination = (
 			<div className="col-xs-12" style={{ textAlign: "center", marginBottom: 20 }}>
-				<button className="btn btn-link" onClick={this.previous.bind(this)}>
+				<Link to={`/photos/${previousPhotoId}`} className="btn btn-link">
 					&laquo; Previous
-				</button>
-				Page {this.state.page + 1} of {this.state.pages.length}
-				<button className="btn btn-link" onClick={this.next.bind(this)}>
+				</Link>
+				Page {pageNum + 1} of {pages.length}
+				<Link to={`/photos/${nextPhotoId}`} className="btn btn-link">
 					Next &raquo;
-				</button>
+				</Link>
 			</div>
 		);
 
@@ -154,23 +132,24 @@ class Photos extends React.Component {
 					: null}
 					{page.map((src) => {
 						return (
-							<GalleryImage key={src}
-								className={`col-sm-${colspan} photo`}
-								src={src}
-								onClick={this.showThumbFullscreen.bind(this, src)}
-								style={containerStyle}>
-							</GalleryImage>
+							<Link key={src} to={`/photos/${currentIndex}?fullscreen=true`}>
+								<GalleryImage
+									className={`col-sm-${colspan} photo`}
+									src={src}
+									style={containerStyle}/>
+							</Link>
 						);
 					})}
 					</div>
 				</div>
 				{pagination}
-				{this.state.fullscreenImage ?
-					<Lightbox onClose={() => this.setState({ fullscreenImage: "" })}>
+				{this.props.location.query.fullscreen === "true" ?
+					<Lightbox closePath={`/photos/${currentIndex}`}>
 						<LightboxImageCarousel
-							currentURL={this.state.fullscreenImage}
-							onChange={this.showFullscreen.bind(this)}
-							urls={hiResUrls}/>
+							urls={hiResUrls}
+							currentURL={hiResUrls[currentIndex]}
+							nextPath={`/photos/${nextPhotoId}?fullscreen=true`}
+							previousPath={`/photos/${previousPhotoId}?fullscreen=true`}/>
 					</Lightbox>
 				: null}
 			</div>

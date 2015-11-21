@@ -11,7 +11,9 @@ let router = (
 	<Route path="/" component={App}>
 		<IndexRoute component={Welcome}/>
 		<Route path="menu" component={Menu}/>
-		<Route path="photos" component={Photos}/>
+		<Route path="photos" component={Photos}>
+			<Route path=":photoId" component={Photos}/>
+		</Route>
 		<Route path="location" component={Location}/>
 		<Route path="stay_updated" component={StayUpdated}/>
 	</Route>
