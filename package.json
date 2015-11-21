@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/.bin/webpack --progress -p",
-    "watch": "./node_modules/.bin/webpack --progress -w",
+		"eslint": "eslint --ignore-pattern src/js/ReactRouter.js src",
     "server": "PORT=3001 nodemon dist/server.bundle.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "./node_modules/.bin/webpack --progress -w"
   },
   "repository": {
     "type": "git",
