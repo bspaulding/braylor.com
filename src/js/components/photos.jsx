@@ -1,3 +1,4 @@
+import assign from "../assign.js";
 import Banner from "./banner.jsx";
 import Colors from "../colors.js"
 import Lightbox from "./lightbox.jsx"
@@ -157,7 +158,7 @@ class Photos extends React.Component {
 						return (
 							<div key={src} className={`col-sm-${colspan} photo`}
 								onClick={this.showThumbFullscreen.bind(this, src)} style={
-								Object.assign({}, containerStyle, {
+								assign({}, containerStyle, {
 									backgroundImage: `url(${src})`
 								})}>
 							</div>

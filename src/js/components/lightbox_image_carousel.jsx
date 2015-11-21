@@ -1,3 +1,4 @@
+import assign from "../assign.js";
 import Colors from "../colors.js";
 import LightboxImage from "./lightbox_image.jsx";
 import React from "react";
@@ -12,11 +13,11 @@ let navButtonStyle = {
 	zIndex: 7
 };
 
-let previousButtonStyle = Object.assign({}, navButtonStyle, {
+let previousButtonStyle = assign({}, navButtonStyle, {
 	left: 0
 });
 
-let nextButtonStyle = Object.assign({}, navButtonStyle, {
+let nextButtonStyle = assign({}, navButtonStyle, {
 	right: 0
 });
 
@@ -58,13 +59,13 @@ class LightboxImageCarousel extends React.Component {
 	}
 
 	nextButtonStyle() {
-		return Object.assign({}, nextButtonStyle, {
+		return assign({}, nextButtonStyle, {
 			cursor: this.nextDisabled() ? 'not-allowed' : 'pointer'
 		});
 	}
 
 	previousButtonStyle() {
-		return Object.assign({}, previousButtonStyle, {
+		return assign({}, previousButtonStyle, {
 			cursor: this.previousDisabled() ? 'not-allowed' : 'pointer'
 		});
 	}

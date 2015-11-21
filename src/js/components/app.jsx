@@ -1,3 +1,4 @@
+import assign from "../assign.js";
 import Colors from "../colors";
 import Countdown from "./countdown.jsx";
 import GlobalNav from "./global_nav.jsx";
@@ -51,10 +52,10 @@ class App extends React.Component {
 					<div className="col-xs-12">
 						<h1>Taylor</h1>
 						<img src={require("../../images/stem-left.svg")}
-							style={Object.assign({}, styles.stem, styles.stemLeft)}/>
+							style={assign({}, styles.stem, styles.stemLeft)}/>
 						<h1 style={styles.amp}>&</h1>
 						<img src={require("../../images/stem-right.svg")}
-							style={Object.assign({}, styles.stem, styles.stemRight)}/>
+							style={assign({}, styles.stem, styles.stemRight)}/>
 						<h1>Bradley</h1>
 					</div>
 				</div>

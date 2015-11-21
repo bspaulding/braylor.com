@@ -1,3 +1,4 @@
+import assign from "../assign.js";
 import React from "react";
 import scribbleCircleURL from "../../images/scribble-circle.svg";
 
@@ -30,7 +31,7 @@ class Countdown extends React.Component {
 	render() {
 		let days = Math.max(0, Math.floor((Date.parse(this.props.to) - (new Date()).getTime()) / (1000 * 60 * 60 * 24)));
 		return (
-			<div style={Object.assign({}, this.props.style, styles.outer)}>
+			<div style={assign({}, this.props.style, styles.outer)}>
 				<span style={styles.span}>{days}<br/>days</span>
 			</div>
 		);

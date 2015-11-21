@@ -15,6 +15,7 @@ import { createMemoryHistory } from "history";
 import createLocation from "history/lib/createLocation";
 import { Provider } from "react-redux";
 import { setUser } from "./actions/user_actions.js";
+import assign from "./assign.js";
 
 // User Id stuff
 import FlakeIdGen from 'flake-idgen';
@@ -65,7 +66,7 @@ var server = http.createServer((request, response) => {
 			}
 
 			zlib.gzip(data, (_, result) => {
-				response.writeHead(200, Object.assign({'Access-Control-Allow-Origin': '*'}, commonHeaders));
+				response.writeHead(200, assign({'Access-Control-Allow-Origin': '*'}, commonHeaders));
 				response.write(result);
 				response.end();
 			});
@@ -93,7 +94,7 @@ var server = http.createServer((request, response) => {
 				.replace("<!-- REACT_DOM_INSERT -->", reactHtml)
 				.replace("<!-- APP_PROPS_INSERT -->", JSON.stringify(store.getState()));
 			zlib.gzip(html, (_, result) => {
-				response.writeHead(200, Object.assign({'Content-Type': 'text/html'}, commonHeaders));
+				response.writeHead(200, assign({'Content-Type': 'text/html'}, commonHeaders));
 				response.write(result);
 				response.end();
 			});
