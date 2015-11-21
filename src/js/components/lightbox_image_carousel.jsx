@@ -3,13 +3,15 @@ import Colors from "../colors.js";
 import LightboxImage from "./lightbox_image.jsx";
 import React from "react";
 
+let navButtonHeight = 54;
 let navButtonStyle = {
 	background: Colors.mineShaft,
 	color: "white",
 	fontSize: 32,
+	height: navButtonHeight,
 	padding: "0px 14px 7px",
 	position: "absolute",
-	top: "50%",
+	top: `calc(50% - ${navButtonHeight / 2}px)`,
 	zIndex: 7
 };
 
