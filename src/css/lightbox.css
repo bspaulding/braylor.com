@@ -18,6 +18,10 @@
   z-index: 2;
 }
 
+a:link.lightbox-close.btn-link,
+a:hover.lightbox-close.btn-link,
+a:active.lightbox-close.btn-link,
+a:visited.lightbox-close.btn-link,
 .lightbox-close {
   font-size: 21px;
   position: fixed;
