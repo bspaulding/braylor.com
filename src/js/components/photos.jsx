@@ -1,15 +1,16 @@
 import assign from "../assign.js";
 import Banner from "./banner.jsx";
-import Colors from "../colors.js"
-import Lightbox from "./lightbox.jsx"
-import LightboxImageCarousel from "./lightbox_image_carousel.jsx"
+import Colors from "../colors.js";
+import GalleryImage from "./gallery_image.jsx";
+import Lightbox from "./lightbox.jsx";
+import LightboxImageCarousel from "./lightbox_image_carousel.jsx";
 import React from "react";
 import {
 	chunk,
 	throttle
 } from "../utils.js";
-import arrowLeftDown from "../../images/Arrow-Left-Down.svg"
-import arrowRightDown from "../../images/Arrow-Right-Down.svg"
+import arrowLeftDown from "../../images/Arrow-Left-Down.svg";
+import arrowRightDown from "../../images/Arrow-Right-Down.svg";
 
 let urls = (function() {
 	var ctx = require.context("../../images/photos/proposal/thumbs");
@@ -21,9 +22,6 @@ let hiResUrls = (function() {
 }());
 
 let containerStyle = {
-	backgroundPosition: "center",
-	backgroundRepeat: "no-repeat",
-	backgroundSize: "cover",
 	border: `1px solid ${Colors.heartPink}`,
 	height: 240,
 	marginLeft: 10,
@@ -156,12 +154,12 @@ class Photos extends React.Component {
 					: null}
 					{page.map((src) => {
 						return (
-							<div key={src} className={`col-sm-${colspan} photo`}
-								onClick={this.showThumbFullscreen.bind(this, src)} style={
-								assign({}, containerStyle, {
-									backgroundImage: `url(${src})`
-								})}>
-							</div>
+							<GalleryImage key={src}
+								className={`col-sm-${colspan} photo`}
+								src={src}
+								onClick={this.showThumbFullscreen.bind(this, src)}
+								style={containerStyle}>
+							</GalleryImage>
 						);
 					})}
 					</div>
