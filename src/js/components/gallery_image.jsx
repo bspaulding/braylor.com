@@ -14,7 +14,7 @@ class GalleryImage extends React.Component {
 		className: React.PropTypes.string,
 		onClick: React.PropTypes.func,
 		src: React.PropTypes.string.isRequired,
-		style: React.PropTypes.string.isRequired
+		style: React.PropTypes.object.isRequired
 	};
 	static defaultPropTypes = {
 		className: "",
