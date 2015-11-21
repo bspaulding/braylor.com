@@ -1,3 +1,3 @@
 module.exports = {
-	CDN_HOST: ""
+	CDN_HOST: "/"
 }
