@@ -11,7 +11,8 @@ export default function userReducer(state, action) {
 	case SET_USER:
 		return {
 			id: action.payload.userId,
-			ipAddress: action.payload.ipAddress
+			ipAddress: action.payload.ipAddress,
+			userAgent: action.payload.agent
 		};
 	default:
 		return state;

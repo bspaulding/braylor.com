@@ -43,6 +43,7 @@ let commonHeaders = {
 
 var server = http.createServer((request, response) => {
 	let ip = request.headers["x-forwarded-for"] || request.connection.remoteAddress;
+	let agent = request.headers["user-agent"];
 	console.log(process.pid + " handling: " + request.url + " from " + ip);
 	let path = parse(request.url).pathname;
 
@@ -74,7 +75,7 @@ var server = http.createServer((request, response) => {
 	}
 
 	let store = makeStore(reduxReactRouter, createMemoryHistory);
-	store.dispatch(setUser(userId, ip));
+	store.dispatch(setUser(userId, ip, agent));
 	store.dispatch(
 		match(createLocation(path), (error, redirectLocation, props) => {
 			if (!props) {
