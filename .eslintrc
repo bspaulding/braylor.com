@@ -81,7 +81,7 @@
 		/*
 			Requires "use strict" in functions.
 		*/
-		"strict": [2, "function"],
+		"strict": [2, "never"],
 
 		/*
 			Disallows trailing spaces.
