@@ -13,14 +13,15 @@ import {
 import arrowLeftDown from "../../images/Arrow-Left-Down.svg";
 import arrowRightDown from "../../images/Arrow-Right-Down.svg";
 
-let urls = (function() {
-	var ctx = require.context("../../images/photos/proposal/thumbs");
-	return ctx.keys().map(ctx);
-})();
-let hiResUrls = (function() {
-	var ctx = require.context("../../images/photos/proposal/hires");
-	return ctx.keys().map(ctx);
-})();
+let times = (x) => {
+	var xs = [];
+	for (var i = 0; i < x; i += 1) {
+		xs.push(i);
+	}
+	return xs;
+};
+let urls = times(57).map((x) => require(`../../images/photos/proposal/thumbs/la-jolla-shores-spaulding-proposal${x+1}.jpg`));
+let hiResUrls = times(57).map((x) => require(`../../images/photos/proposal/hires/la-jolla-shores-spaulding-proposal${x+1}.jpg`));
 
 let containerStyle = {
 	border: `1px solid ${Colors.heartPink}`,
