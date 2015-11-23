@@ -20,7 +20,7 @@ const reducer = combineReducers({
 export function makeStore(reduxReactRouter, createHistory, initialState) {
 	return compose(
 		// devTools()
-		persistState(['photos', 'user']),
+		persistState(['photos']),
 		reduxReactRouter({
 			routes,
 			createHistory
