@@ -51,7 +51,7 @@ class Location extends React.Component {
 						</p>
 						<p style={phoneStyle}>
 							<a href="tel:8556856299" target="_blank">
-								(855) 685&ndash;6299
+								(888) 976&ndash;3404
 							</a>
 						</p>
 						<p style={locationStyle}>
