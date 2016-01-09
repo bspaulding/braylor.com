@@ -72,7 +72,9 @@ class LightboxImageCarousel extends React.Component {
 					<span style={this.previousIconStyle()}>&laquo;</span>
 				</Link>
 				: null}
-				<LightboxImage src={this.props.currentURL}/>
+				<LightboxImage src={this.props.currentURL}>
+					{this.props.children}
+				</LightboxImage>
 				{this.showNavButtons() ?
 				<Link style={this.nextButtonStyle()}
 					className="btn btn-link"
@@ -87,6 +89,7 @@ class LightboxImageCarousel extends React.Component {
 
 LightboxImageCarousel.displayName = "LightboxImageCarousel";
 LightboxImageCarousel.propTypes = {
+	children: React.PropTypes.element,
 	urls: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
 	currentURL: React.PropTypes.string.isRequired,
 	previousPath: React.PropTypes.string.isRequired,

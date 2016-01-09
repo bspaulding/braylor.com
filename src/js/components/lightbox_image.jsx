@@ -26,6 +26,7 @@ let defaultState = { previewSize: {}, loading: true };
 class LightboxImage extends React.Component {
 	static displayName = "LightboxImage";
 	static propTypes = {
+		children: React.PropTypes.element,
 		src: React.PropTypes.string.isRequired
 	};
 
@@ -101,6 +102,7 @@ class LightboxImage extends React.Component {
 					ref="image"
 					src={this.props.src}
 					onLoad={this.imageLoaded}/>
+				{this.props.children}
       </div>
 		);
 	}
