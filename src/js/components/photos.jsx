@@ -22,7 +22,7 @@ let times = (x) => {
 	return xs;
 };
 
-let photos = times(57).map((x) => {
+let proposalPhotos = times(57).map((x) => {
 	return {
 		url: require(`../../images/photos/proposal/thumbs/la-jolla-shores-spaulding-proposal${x+1}.jpg`),
 		hiResUrl: require(`../../images/photos/proposal/hires/la-jolla-shores-spaulding-proposal${x+1}.jpg`),
@@ -30,6 +30,15 @@ let photos = times(57).map((x) => {
 		creditLink: "http://www.foxandcrownphotography.com" // TODO: Verify this
 	};
 });
+let engagementPhotos = times(78).map((x) => {
+	return {
+		url: require(`../../images/photos/engagement/thumbs/taylorbradleyengagement_ashleykelemen-${x+1}.jpg`),
+		hiResUrl: require(`../../images/photos/engagement/hires/taylorbradleyengagement_ashleykelemen-${x+1}.jpg`),
+		credit: "Ashley Kelemen Photography",
+		creditLink: "http://www.ashleykelemenphotography.com" // TODO: Verify this
+	};
+});
+let photos = engagementPhotos.concat(proposalPhotos);
 
 let containerStyle = {
 	border: `1px solid ${Colors.heartPink}`,
