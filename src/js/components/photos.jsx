@@ -24,6 +24,7 @@ let times = (x) => {
 
 let proposalPhotos = times(57).map((x) => {
 	return {
+		id: x,
 		url: require(`../../images/photos/proposal/thumbs/la-jolla-shores-spaulding-proposal${x+1}.jpg`),
 		hiResUrl: require(`../../images/photos/proposal/hires/la-jolla-shores-spaulding-proposal${x+1}.jpg`),
 		credit: "Fox and Crown Photography",
@@ -32,6 +33,7 @@ let proposalPhotos = times(57).map((x) => {
 });
 let engagementPhotos = times(78).map((x) => {
 	return {
+		id: 57 + x,
 		url: require(`../../images/photos/engagement/thumbs/taylorbradleyengagement_ashleykelemen-${x+1}.jpg`),
 		hiResUrl: require(`../../images/photos/engagement/hires/taylorbradleyengagement_ashleykelemen-${x+1}.jpg`),
 		credit: "Ashley Kelemen Photography",
@@ -111,7 +113,7 @@ class Photos extends React.Component {
 	render() {
 		/* eslint complexity: [2, 10] */
 		let colspan = Math.floor(12 / this.columns());
-		let photo = photos[this.props.params.photoId || 0];
+		let photo = photos.find((photo) => photo.id === parseInt(this.props.params.photoId, 10)) || 0;
 
 		let perPage = this.state.compressed ? 1 : 4;
 		let currentIndex = photos.indexOf(photo);
@@ -119,11 +121,11 @@ class Photos extends React.Component {
 		let pageNum = Math.floor(currentIndex / perPage);
 		let page = pages[pageNum] || [];
 
-		let previousPhotoId = currentIndex === 0 ? photos.length - 1 : currentIndex -  1;
-		let nextPhotoId = currentIndex === photos.length - 1 ? 0 : currentIndex + 1;
+		let previousPhotoId = currentIndex === 0 ? photos[photos.length - 1].id : photos[currentIndex -  1].id;
+		let nextPhotoId = currentIndex === photos.length - 1 ? photos[0].id : photos[currentIndex + 1].id;
 
-		let previousPageId = currentIndex === 0 ? photos.length - perPage : currentIndex -  perPage;
-		let nextPageId = currentIndex === photos.length - perPage ? 0 : currentIndex + perPage;
+		let previousPageId = currentIndex === 0 ? photos[photos.length - perPage].id : photos[currentIndex -  perPage].id;
+		let nextPageId = currentIndex === photos.length - perPage ? photos[0].id : photos[currentIndex + perPage].id;
 
 		let pagination = (
 			<div className="col-xs-12" style={{ textAlign: "center", marginBottom: 20 }}>
@@ -163,7 +165,7 @@ class Photos extends React.Component {
 					: null}
 					{page.map((photo) => {
 						return (
-							<Link key={photo.url} to={`/photos/${photos.indexOf(photo)}?fullscreen=true`}>
+							<Link key={photo.url} to={`/photos/${photo.id}?fullscreen=true`}>
 								<GalleryImage
 									className={`col-sm-${colspan} photo`}
 									src={photo.url}
@@ -175,7 +177,7 @@ class Photos extends React.Component {
 				</div>
 				{pagination}
 				{this.props.location.query.fullscreen === "true" ?
-					<Lightbox closePath={`/photos/${currentIndex}`}>
+					<Lightbox closePath={`/photos/${photo.id}`}>
 						<LightboxImageCarousel
 							urls={photos.map((photo) => photo.hiResUrl)}
 							currentURL={photos[currentIndex].hiResUrl}
