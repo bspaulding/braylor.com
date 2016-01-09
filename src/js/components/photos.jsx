@@ -5,6 +5,7 @@ import GalleryImage from "./gallery_image.jsx";
 import Lightbox from "./lightbox.jsx";
 import LightboxImageCarousel from "./lightbox_image_carousel.jsx";
 import { Link } from "react-router";
+import PhotoCreditFooter from "./photo_credit_footer.jsx";
 import React from "react";
 import {
 	chunk,
@@ -24,7 +25,9 @@ let times = (x) => {
 let photos = times(57).map((x) => {
 	return {
 		url: require(`../../images/photos/proposal/thumbs/la-jolla-shores-spaulding-proposal${x+1}.jpg`),
-		hiResUrl: require(`../../images/photos/proposal/hires/la-jolla-shores-spaulding-proposal${x+1}.jpg`)
+		hiResUrl: require(`../../images/photos/proposal/hires/la-jolla-shores-spaulding-proposal${x+1}.jpg`),
+		credit: "Fox and Crown Photography",
+		creditLink: "http://www.foxandcrownphotography.com" // TODO: Verify this
 	};
 });
 
@@ -168,7 +171,9 @@ class Photos extends React.Component {
 							urls={photos.map((photo) => photo.hiResUrl)}
 							currentURL={photos[currentIndex].hiResUrl}
 							nextPath={`/photos/${nextPhotoId}?fullscreen=true`}
-							previousPath={`/photos/${previousPhotoId}?fullscreen=true`}/>
+							previousPath={`/photos/${previousPhotoId}?fullscreen=true`}>
+							<PhotoCreditFooter credit={photo.credit} creditLink={photo.creditLink}/>
+						</LightboxImageCarousel>
 					</Lightbox>
 				: null}
 			</div>
