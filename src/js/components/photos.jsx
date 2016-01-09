@@ -20,8 +20,13 @@ let times = (x) => {
 	}
 	return xs;
 };
-let urls = times(57).map((x) => require(`../../images/photos/proposal/thumbs/la-jolla-shores-spaulding-proposal${x+1}.jpg`));
-let hiResUrls = times(57).map((x) => require(`../../images/photos/proposal/hires/la-jolla-shores-spaulding-proposal${x+1}.jpg`));
+
+let photos = times(57).map((x) => {
+	return {
+		url: require(`../../images/photos/proposal/thumbs/la-jolla-shores-spaulding-proposal${x+1}.jpg`),
+		hiResUrl: require(`../../images/photos/proposal/hires/la-jolla-shores-spaulding-proposal${x+1}.jpg`)
+	};
+});
 
 let containerStyle = {
 	border: `1px solid ${Colors.heartPink}`,
@@ -94,19 +99,19 @@ class Photos extends React.Component {
 	render() {
 		/* eslint complexity: [2, 10] */
 		let colspan = Math.floor(12 / this.columns());
-		let src = urls[this.props.params.photoId || 0];
+		let photo = photos[this.props.params.photoId || 0];
 
 		let perPage = this.state.compressed ? 1 : 4;
-		let currentIndex = urls.indexOf(src);
-		let pages = chunk(perPage, urls);
+		let currentIndex = photos.indexOf(photo);
+		let pages = chunk(perPage, photos);
 		let pageNum = Math.floor(currentIndex / perPage);
 		let page = pages[pageNum] || [];
 
-		let previousPhotoId = currentIndex === 0 ? urls.length - 1 : currentIndex -  1;
-		let nextPhotoId = currentIndex === urls.length - 1 ? 0 : currentIndex + 1;
+		let previousPhotoId = currentIndex === 0 ? photos.length - 1 : currentIndex -  1;
+		let nextPhotoId = currentIndex === photos.length - 1 ? 0 : currentIndex + 1;
 
-		let previousPageId = currentIndex === 0 ? urls.length - perPage : currentIndex -  perPage;
-		let nextPageId = currentIndex === urls.length - perPage ? 0 : currentIndex + perPage;
+		let previousPageId = currentIndex === 0 ? photos.length - perPage : currentIndex -  perPage;
+		let nextPageId = currentIndex === photos.length - perPage ? 0 : currentIndex + perPage;
 
 		let pagination = (
 			<div className="col-xs-12" style={{ textAlign: "center", marginBottom: 20 }}>
@@ -144,12 +149,12 @@ class Photos extends React.Component {
 							</button>
 						</div>
 					: null}
-					{page.map((src) => {
+					{page.map((photo) => {
 						return (
-							<Link key={src} to={`/photos/${urls.indexOf(src)}?fullscreen=true`}>
+							<Link key={photo.url} to={`/photos/${photos.indexOf(photo)}?fullscreen=true`}>
 								<GalleryImage
 									className={`col-sm-${colspan} photo`}
-									src={src}
+									src={photo.url}
 									style={containerStyle}/>
 							</Link>
 						);
@@ -160,8 +165,8 @@ class Photos extends React.Component {
 				{this.props.location.query.fullscreen === "true" ?
 					<Lightbox closePath={`/photos/${currentIndex}`}>
 						<LightboxImageCarousel
-							urls={hiResUrls}
-							currentURL={hiResUrls[currentIndex]}
+							urls={photos.map((photo) => photo.hiResUrl)}
+							currentURL={photos[currentIndex].hiResUrl}
 							nextPath={`/photos/${nextPhotoId}?fullscreen=true`}
 							previousPath={`/photos/${previousPhotoId}?fullscreen=true`}/>
 					</Lightbox>
