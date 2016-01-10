@@ -113,7 +113,7 @@ class Photos extends React.Component {
 	render() {
 		/* eslint complexity: [2, 10] */
 		let colspan = Math.floor(12 / this.columns());
-		let photo = photos.find((photo) => photo.id === parseInt(this.props.params.photoId, 10)) || 0;
+		let photo = photos.find((photo) => photo.id === parseInt(this.props.params.photoId, 10)) || photos[0];
 
 		let perPage = this.state.compressed ? 1 : 4;
 		let currentIndex = photos.indexOf(photo);
