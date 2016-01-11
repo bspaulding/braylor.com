@@ -40,7 +40,9 @@ let engagementPhotos = times(78).map((x) => {
 		creditLink: "http://ashleykelemen.com"
 	};
 });
-let photos = engagementPhotos.concat(proposalPhotos);
+let photos = engagementPhotos.slice(0, 46)
+	.concat(engagementPhotos.slice(48))
+	.concat(proposalPhotos);
 
 let containerStyle = {
 	border: `1px solid ${Colors.heartPink}`,
