@@ -33,7 +33,7 @@ class PhotoCreditFooter extends React.Component {
 		return (
 			<div style={outerStyle}>
 				{this.props.creditLink ?
-					<a href={this.props.creditLink}>{this.props.credit}</a>
+					<a href={this.props.creditLink} target="_blank">{this.props.credit}</a>
 				: this.props.credit}
 			</div>
 		);
