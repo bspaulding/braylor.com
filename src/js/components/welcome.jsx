@@ -1,6 +1,6 @@
 import Colors from "../colors.js";
 import React from "react";
-import welcomePicSrc from "../../images/photos/proposal/thumbs/la-jolla-shores-spaulding-proposal27.jpg";
+import welcomePicSrc from "../../images/photos/engagement/thumbs/taylorbradleyengagement_ashleykelemen-14.jpg";
 import { Link } from "react-router";
 
 let styles = {
@@ -22,8 +22,8 @@ let styles = {
 	},
 	image: {
 		backgroundImage: `url(${welcomePicSrc})`,
-		backgroundPosition: "-40px 0px",
-		backgroundSize: 420,
+		backgroundPosition: "-10px 0px",
+		backgroundSize: 320,
 		boxShadow: "0px 1px 6px #000",
 		borderColor: Colors.heartPink,
 		borderRadius: "50%",
