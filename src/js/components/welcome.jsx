@@ -56,8 +56,7 @@ class Welcome extends React.Component {
 						</p>
 						<p style={styles.p}>
 							Most importantly, please be sure to <Link to="/stay_updated">sign up for the mailing list</Link>.
-							That way, you'll be in the know about the latest and greatest Braylor Wedding info!
-							(hint: engagement photos are coming soon!)
+							That way, you'll be in the know about the latest wedding info!
 						</p>
 						<div style={{ textAlign: "center" }}>
 							<Link className="btn btn-primary" to="/stay_updated">
