@@ -126,7 +126,7 @@ class Photos extends React.Component {
 		let previousPhotoId = currentIndex === 0 ? photos[photos.length - 1].id : photos[currentIndex -  1].id;
 		let nextPhotoId = currentIndex === photos.length - 1 ? photos[0].id : photos[currentIndex + 1].id;
 
-		let previousPageId = currentIndex === 0 ?
+		let previousPageId = currentIndex < perPage ?
 			photos[photos.length - perPage].id :
 			photos[currentIndex -  perPage].id;
 		let nextPageId = currentIndex >= photos.length - perPage ?
