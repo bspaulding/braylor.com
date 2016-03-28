@@ -31,6 +31,7 @@ class GlobalNav extends React.Component {
 						<li style={styles.li}><Link to="/location" activeClassName="active">Location</Link></li>
 						<li style={styles.li}><a href="http://www.myregistry.com/public/braylorwedding" target="_blank">Registry</a></li>
 						<li style={styles.li}><Link to="/stay_updated" activeClassName="active">Stay Updated</Link></li>
+						<li style={styles.li}><Link to="/faq" activeClassName="active">FAQ</Link></li>
 					</ul>
 				</div>
 			</div>
