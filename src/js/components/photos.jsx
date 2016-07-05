@@ -40,7 +40,18 @@ let engagementPhotos = times(78).map((x) => {
 		creditLink: "http://ashleykelemen.com/?utm_source=braylor&utm_medium=web&utm_campaign=braylor-engagement"
 	};
 });
-let photos = engagementPhotos.slice(0, 46)
+const pad = (x, y) => parseInt(x, 10) < y ? `0${x}` : x;
+let weddingPhotos = times(618).map((x) => {
+	return {
+		id: 57 + 78 + x,
+		url: require(`../../images/photos/wedding/thumbs/${pad(pad(x+1, 10), 100)}taylorbradwed_ashleykelemen.jpg`),
+		hiResUrl: require(`../../images/photos/wedding/hires/${pad(pad(x+1, 10), 100)}taylorbradwed_ashleykelemen.jpg`),
+		credit: "Ashley Kelemen Photography",
+		creditLink: "http://ashleykelemen.com/?utm_source=braylor&utm_medium=web&utm_campaign=braylor-wedding"
+	};
+});
+let photos = weddingPhotos
+	.concat(engagementPhotos.slice(0, 46))
 	.concat(engagementPhotos.slice(48))
 	.concat(proposalPhotos);
 
