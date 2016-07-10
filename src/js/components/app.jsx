@@ -2,7 +2,6 @@
 
 import assign from "../assign.js";
 import Colors from "../colors";
-import Countdown from "./countdown.jsx";
 import GlobalNav from "./global_nav.jsx";
 import React from "react";
 
@@ -49,7 +48,6 @@ class App extends React.Component {
 		return (
 			<div>
 				<a name="top"></a>
-				<Countdown to="May 14, 2016" style={styles.countdown}/>
 				<div className="row" style={styles.header}>
 					<div className="col-xs-12">
 						<h1>Taylor</h1>
