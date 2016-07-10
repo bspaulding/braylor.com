@@ -7,7 +7,7 @@ let styles = {
 		fontSize: 24,
 		listStyleType: "none",
 		margin: "0px auto",
-		maxWidth: 640,
+		maxWidth: 320,
 		paddingLeft: 0,
 		textAlign: "center"
 	},
@@ -26,12 +26,7 @@ class GlobalNav extends React.Component {
 				<div className="col-xs-12" style={{ marginTop: 20, marginBottom: 20 }}>
 					<ul style={styles.ul} className="global-nav">
 						<li style={styles.li}><IndexLink to="/" activeClassName="active">Welcome</IndexLink></li>
-						<li style={styles.li}><Link to="/menu" activeClassName="active">Menu</Link></li>
 						<li style={styles.li}><Link to="/photos" activeClassName="active">Photos</Link></li>
-						<li style={styles.li}><Link to="/location" activeClassName="active">Location</Link></li>
-						<li style={styles.li}><a href="http://www.myregistry.com/public/braylorwedding" target="_blank">Registry</a></li>
-						<li style={styles.li}><Link to="/stay_updated" activeClassName="active">Stay Updated</Link></li>
-						<li style={styles.li}><Link to="/faq" activeClassName="active">FAQ</Link></li>
 					</ul>
 				</div>
 			</div>
