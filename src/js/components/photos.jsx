@@ -13,6 +13,7 @@ import {
 } from "../utils.js";
 import arrowLeftDown from "../../images/Arrow-Left-Down.svg";
 import arrowRightDown from "../../images/Arrow-Right-Down.svg";
+import weddingPhotosToExclude from "../website-photos-exclude.js";
 
 let times = (x) => {
 	var xs = [];
@@ -42,14 +43,16 @@ let engagementPhotos = times(78).map((x) => {
 });
 const pad = (x, y) => parseInt(x, 10) < y ? `0${x}` : x;
 let weddingPhotos = times(618).map((x) => {
+	const filename = `${pad(pad(x+1, 10), 100)}taylorbradwed_ashleykelemen.jpg`;
 	return {
 		id: 57 + 78 + x,
-		url: require(`../../images/photos/wedding/thumbs/${pad(pad(x+1, 10), 100)}taylorbradwed_ashleykelemen.jpg`),
-		hiResUrl: require(`../../images/photos/wedding/hires/${pad(pad(x+1, 10), 100)}taylorbradwed_ashleykelemen.jpg`),
+		filename: filename,
+		url: require(`../../images/photos/wedding/thumbs/${filename}`),
+		hiResUrl: require(`../../images/photos/wedding/hires/${filename}`),
 		credit: "Ashley Kelemen Photography",
 		creditLink: "http://ashleykelemen.com/?utm_source=braylor&utm_medium=web&utm_campaign=braylor-wedding"
 	};
-});
+}).filter(photo => weddingPhotosToExclude.indexOf(photo.filename) < 0);
 let photos = weddingPhotos
 	.concat(engagementPhotos.slice(0, 46))
 	.concat(engagementPhotos.slice(48))
