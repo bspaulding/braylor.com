@@ -47,22 +47,16 @@ class Welcome extends React.Component {
 						<p style={styles.p}>
 							<span style={styles.fancyLetter}>W</span>
 							Welcome! We are so excited that you've made it here!
-							We hope you'll find everything you need to know about our special day,
-							and get super excited to celebrate with us!
+							Thanks so much to everyone who came out and celebrated
+							with us.
 						</p>
 						<p style={styles.p}>
-							Over on the <Link to="/location">location</Link> page, you'll find some helpful
-							travel tips, as well as more information about accomodations.
+							We've just updated the <Link to="/photos">photos</Link> with
+							some amazing pics from <a href="http://ashleykelemen.com/?utm_source=braylor&utm_medium=web&utm_campaign=braylor-wedding">Ashley Keleman</a>.
 						</p>
 						<p style={styles.p}>
-							Most importantly, please be sure to <Link to="/stay_updated">sign up for the mailing list</Link>.
-							That way, you'll be in the know about the latest wedding info!
+							<Link to="/photos">Check out the wedding photos!</Link>
 						</p>
-						<div style={{ textAlign: "center" }}>
-							<Link className="btn btn-primary" to="/stay_updated">
-								Join the Mailing List
-							</Link>
-						</div>
 					</div>
 				</div>
 			</div>
