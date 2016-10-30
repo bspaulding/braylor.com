@@ -27,6 +27,13 @@ class GlobalNav extends React.Component {
 					<ul style={styles.ul} className="global-nav">
 						<li style={styles.li}><IndexLink to="/" activeClassName="active">Welcome</IndexLink></li>
 						<li style={styles.li}><Link to="/photos" activeClassName="active">Photos</Link></li>
+						<li style={styles.li}>
+							<Link
+								to="/video"
+								activeClassName="active">
+								Video
+							</Link>
+						</li>
 					</ul>
 				</div>
 			</div>

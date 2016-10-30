@@ -61,6 +61,9 @@ var server = http.createServer((request, response) => {
 	}
 
 	if (path === "/client.bundle.js" ||
+		path.indexOf(".ts") >= 0 ||
+		path.indexOf(".m3u8") >= 0 ||
+		path.indexOf(".mp4") >= 0 ||
 		path.indexOf(".jpg") >= 0 ||
 		path.indexOf(".woff") >= 0) {
 		fs.readFile("./dist" + path, (error, data) => {
