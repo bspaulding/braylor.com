@@ -17,28 +17,34 @@ module.exports = [{
         cacheDirectory: true,
         presets: ["es2015", "react", "stage-1"]
       }
-		}, {
-			test: /\.jpg/, loader: "file?mimetype=image/jpg"
-		}, {
-			test: /\.css/, loaders: ["style", "css", "autoprefixer", "purifycss"]
-		}, {
-			test: /\.less/, loaders: ["style", "css", "autoprefixer", "purifycss", "less"]
-		}, {
-			test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff"
-		}, {
-			test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff2"
-		}, {
-    	test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream"
-		}, {
-    	test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file"
-		}, {
-    	test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml"
+    }, {
+      test: /\.jpg/, loader: "file?mimetype=image/jpg"
+    }, {
+      test: /\.css/, loaders: ["style", "css", "autoprefixer", "purifycss"]
+    }, {
+      test: /\.less/, loaders: ["style", "css", "autoprefixer", "purifycss", "less"]
+    }, {
+      test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff"
+    }, {
+      test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff2"
+    }, {
+      test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream"
+    }, {
+      test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file"
+    }, {
+      test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml"
+    }, {
+      test: /\.mp4/, loader: "file?mimetype=video/mp4"
+    }, {
+      test: /\.webm/, loader: "file?mimetype=video/webm"
+    }, {
+      test: /\.ogg/, loader: "file?mimetype=video/ogg"
     }]
   },
-	plugins: [
-		new PurifyCSSPlugin(__dirname, "/dist/index-template.html")
-	],
-	target: "web"
+  plugins: [
+    new PurifyCSSPlugin(__dirname, "/dist/index-template.html")
+  ],
+  target: "web"
 }, {
   entry: "./src/js/server.js",
   output: {
@@ -56,12 +62,18 @@ module.exports = [{
         presets: ["es2015", "react", "stage-1"]
       }
     }, {
-    	test: /\.jpg/, loader: "file?mimetype=image/jpg"
+      test: /\.jpg/, loader: "file?mimetype=image/jpg"
     }, {
-    	test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml"
-		}, {
-    	test: /\.json/, loader: "json"
+      test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml"
+    }, {
+      test: /\.json/, loader: "json",
+    }, {
+      test: /\.mp4/, loader: "file?mimetype=video/mp4"
+    }, {
+      test: /\.webm/, loader: "file?mimetype=video/webm"
+    }, {
+      test: /\.ogg/, loader: "file?mimetype=video/ogg"
     }]
   },
-	target: "node"
+  target: "node"
 }];
