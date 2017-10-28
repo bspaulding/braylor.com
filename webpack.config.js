@@ -6,6 +6,7 @@ var path = require('path');
 var glob = require('glob');
 var PurifyCSSPlugin = require("purifycss-webpack");
 var env = require("./config/" + (process.env.NODE_ENV || "development"));
+var OfflinePlugin = require('offline-plugin');
 
 module.exports = [{
   entry: "./src/js/index.jsx",
@@ -50,6 +51,18 @@ module.exports = [{
   plugins: [
     new PurifyCSSPlugin({
 			paths: glob.sync(path.join(__dirname, "dist/index-template.html"))
+		}),
+		new OfflinePlugin({
+			publicPath: '/',
+			caches: {
+				main: ['*.js', '*.ttf', '*.woff', '*.woff2', '*.svg'],
+				additional: [':externals:'],
+				optional: [':rest:']
+			},
+			externals: ['/'],
+			ServiceWorker: {
+				navigateFallbackURL: '/'
+			}
 		})
   ],
   target: "web"
