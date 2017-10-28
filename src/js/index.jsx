@@ -22,6 +22,10 @@ import "../css/menu.css";
 import "../css/welcome.less";
 import "../css/video.less";
 
+import { install } from 'offline-plugin/runtime';
+
+install();
+
 render(
 	<Provider store={makeStore(reduxReactRouter, createHistory, window.__INITIAL_STATE__)}>
 		<ReduxRouter>
