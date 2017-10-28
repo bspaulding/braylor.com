@@ -61,6 +61,7 @@ var server = http.createServer((request, response) => {
 	}
 
 	if (path === "/client.bundle.js" ||
+		path.indexOf(".css") >= 0 ||
 		path.indexOf(".ts") >= 0 ||
 		path.indexOf(".m3u8") >= 0 ||
 		path.indexOf(".mp4") >= 0 ||
