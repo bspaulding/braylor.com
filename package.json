@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/.bin/webpack --progress -p",
-		"eslint": "eslint --ignore-pattern src/js/ReactRouter.js src/js/**/*",
+    "eslint": "eslint --ignore-pattern src/js/ReactRouter.js src/js/**/*",
     "server": "PORT=3001 nodemon dist/server.bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "./node_modules/.bin/webpack --progress -w"
@@ -54,6 +54,6 @@
     "redux-router": "1.0.0-beta4",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.6",
-    "webpack": "^1.12.4"
+    "webpack": "^2.7.0"
   }
 }
