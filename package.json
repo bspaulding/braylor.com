@@ -6,6 +6,7 @@
   "scripts": {
     "build": "./node_modules/.bin/webpack --progress -p",
     "eslint": "eslint --ignore-pattern src/js/ReactRouter.js src/js/**/*",
+    "heroku-postbuild": "rm -rf src",
 		"postinstall": "./node_modules/.bin/webpack --progress -p",
     "server": "PORT=3001 nodemon dist/server.bundle.js",
 		"start": "node dist/server.bundle.js",
