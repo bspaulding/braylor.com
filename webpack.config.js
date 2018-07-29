@@ -2,22 +2,11 @@
 
 /* eslint-disable no-process-env */
 
+require("dotenv").config();
 var path = require('path');
 var glob = require('glob');
 var PurifyCSSPlugin = require("purifycss-webpack");
-var S3Plugin = require("webpack-s3-plugin");
 var env = require("./config/" + (process.env.NODE_ENV || "development"));
-
-var s3 = new S3Plugin({
-	include: /.*(mp4|webm|ogg|jpg)/,
-	s3Options: {
-		accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-		secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-	},
-	s3UploadOptions: {
-		Bucket: process.env.S3_BUCKET_NAME
-	}
-});
 
 module.exports = [{
   entry: "./src/js/index.jsx",
@@ -62,8 +51,7 @@ module.exports = [{
   plugins: [
     new PurifyCSSPlugin({
 			paths: glob.sync(path.join(__dirname, "dist/index-template.html"))
-		}),
-		s3
+		})
   ],
   target: "web"
 }, {
@@ -96,6 +84,5 @@ module.exports = [{
       test: /\.ogg/, loader: "file-loader?mimetype=video/ogg"
     }]
   },
-  plugins: [s3],
   target: "node"
 }];
