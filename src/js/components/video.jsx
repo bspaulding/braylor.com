@@ -8,13 +8,14 @@ class Video extends Component {
 	static displayName = "Video";
 
 	render() {
+		// removed because I couldn't get this to work easily on heroku/cloudfront /shrug
+		// <source src='https://dl3qhh2xbcrs2.cloudfront.net/wedding-highlight-hls/prog_index.m3u8'/>
 		return (
 			<div className="video" style={{ textAlign: 'center' }}>
 				<video
 					allowFullScreen={true}
 					controls
 					style={{ marginBottom: '20px', width: '100%' }}>
-					<source src='https://dl3qhh2xbcrs2.cloudfront.net/wedding-highlight-hls/prog_index.m3u8'/>
 					<source src={mp4High} type='video/mp4'/>
 					<source src={webm} type='video/webm'/>
 					<source src={ogg} type='video/ogg'/>
