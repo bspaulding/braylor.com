@@ -8,4 +8,4 @@ RUN npm run build
 FROM node:erbium
 WORKDIR /app
 COPY --from=builder /var/www/app/dist /app/dist
-RUN node dist/server.bundle.js
+ENTRYPOINT ["node", "dist/server.bundle.js"]
