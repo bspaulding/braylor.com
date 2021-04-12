@@ -14,7 +14,6 @@ class Video extends Component {
 					allowFullScreen={true}
 					controls
 					style={{ marginBottom: '20px', width: '100%' }}>
-					<source src='/wedding-highlight-hls/prog_index.m3u8'/>
 					<source src={mp4High} type='video/mp4'/>
 					<source src={webm} type='video/webm'/>
 					<source src={ogg} type='video/ogg'/>
