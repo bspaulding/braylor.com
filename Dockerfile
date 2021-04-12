@@ -7,5 +7,5 @@ RUN npm run build
 
 FROM node:erbium
 WORKDIR /app
-COPY --from=builder /var/www/app/dist /app
-RUN node server.bundle.js
+COPY --from=builder /var/www/app/dist /app/dist
+RUN node dist/server.bundle.js
