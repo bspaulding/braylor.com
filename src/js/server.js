@@ -36,9 +36,23 @@ if (cluster.isMaster) {
 	});
 } else {
 
-var template = fs.readFileSync("./dist/index-template.html")
-	.toString();
-
+var template = `
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1">
+  </head>
+  <body>
+    <div id="react-container" class="container-fluid"><!-- REACT_DOM_INSERT --></div>
+    <script>
+      window.__INITIAL_STATE__ = <!-- APP_PROPS_INSERT -->;
+    </script>
+    <script src="/client.bundle.js"></script>
+  </body>
+</html>
+`;
+	
 let commonHeaders = {
 	'Cache-Control': 'public, max-age=31536000',
 	'Content-Encoding': 'gzip'
