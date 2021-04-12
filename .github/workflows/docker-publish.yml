@@ -75,7 +75,7 @@ jobs:
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
 
-publish-to-docker-hub:
+  publish-to-docker-hub:
     runs-on: ubuntu-latest
 
     steps:
