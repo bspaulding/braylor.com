@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-//import mp4High from '../../video/wedding-highlight.mp4';
-// import webm from '../../video/wedding-highlight.webm';
-// import ogg from '../../video/wedding-highlight.ogg';
-//import mp4Low from '../../video/wedding-highlight-low.mp4';
 
 const mediaHost = 'http://media.braylor.com.s3-website-us-west-2.amazonaws.com';
 const mp4Low = `${mediaHost}/wedding-highlight-low.mp4`;
